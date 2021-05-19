@@ -15,7 +15,7 @@ if (isset($_COOKIE["username"])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>SayHaii - Global chat sederhana</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -112,13 +112,13 @@ if (isset($_COOKIE["username"])) {
 
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">SayHello</a>
+      <a class="navbar-brand" href="#">SayHaii</a>
     </div>
   </nav>
 
   <?php if ($loginStatus != true): ?>
   <section class="container p-3">
-    <h5>Hai, selamat datang di Say Hello</h5>
+    <h5>Hai, selamat datang di SayHaii</h5>
     <p class="text-muted">
       Percakapan global sederhana.
     </p>
