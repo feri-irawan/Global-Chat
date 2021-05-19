@@ -136,7 +136,7 @@ if (isset($_COOKIE["username"])) {
   <?php endif; ?>
 
   <?php if ($loginStatus == true): ?>
-  <section id="chat-wrapper" class="container bg-warning">
+  <section id="chat-wrapper" class="container bg-white">
     <main id="chat-container">
     </main>
   </section>
