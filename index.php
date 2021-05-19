@@ -256,7 +256,7 @@ if (isset($_COOKIE["username"])) {
         }
       });
 
-      $("#btn-to-newchat").ready(function () {
+      $("#btn-to-newchat").click(function () {
         $("#chat").animate({
           scrollTop: $('#chat').get(0).scrollHeight
         }, 1000);
