@@ -163,7 +163,7 @@ if (isset($_COOKIE["username"])) {
   <script>
     setInterval(function () {
       getChat()
-    }, 1500)
+    }, 1500);
 
     $("#chat-form").submit(function (e) {
 
