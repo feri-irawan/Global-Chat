@@ -182,8 +182,12 @@ if (isset($_COOKIE["username"])) {
     }
     
     $(document).ready(function() {
-        $("#pushnotification").click(demo);
+        $("#pushnotification").click(function(){
+          demo()
+        });
     });
+
+
 
     setInterval(function () {
       getChat()
