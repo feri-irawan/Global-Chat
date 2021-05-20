@@ -55,6 +55,9 @@ if (isset($_COOKIE["username"])) {
     }
     
     @keyframes spinner {
+      from {
+        transform: rotate(0deg);
+      }
       to {
         transform: rotate(360deg);
       }
