@@ -63,7 +63,7 @@ if (isset($_COOKIE["username"])) {
       display: block;
       position: relative;
       margin-left: 0.5rem;
-      margin-block: 1rem;
+      margin-bottom: 1rem;
     }
     .chat-box::before {
       content: "";
