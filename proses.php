@@ -4,6 +4,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 date_default_timezone_set("Asia/Makassar");
 
+$dbURL = "https://pixwebsite1998.000webhostapp.com/v2/global-chat/chat.json";
 
 if (isset($_POST["message"])) {
   $username = $_POST["username"];
@@ -11,7 +12,7 @@ if (isset($_POST["message"])) {
   $message = $_POST["message"];
 
   if ($message != null) {
-    $db = json_decode(file_get_contents("chat.json"), true);
+    $db = json_decode(file_get_contents($dbURL), true);
 
     $chat_array = [
         "username" => $username,
@@ -23,7 +24,7 @@ if (isset($_POST["message"])) {
     
     $db["chat"][] = $chat_array;
 
-    file_put_contents("chat.json", json_encode($db, JSON_PRETTY_PRINT));
+    file_put_contents($dbURL, json_encode($db, JSON_PRETTY_PRINT));
   }
 }
 
@@ -37,7 +38,7 @@ if (isset($_POST["message"])) {
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
 
-  $db = json_decode(file_get_contents("chat.json"));
+  $db = json_decode(file_get_contents($dbURL));
 
   if ($db != null) {
     
