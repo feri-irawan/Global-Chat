@@ -259,7 +259,6 @@ if (isset($_COOKIE["username"]) != "") {
         data: "update",
         success: function (res) {
           let container = $("#chat-container");
-          Cookies.set("message", null);
           
           if (Cookies.get("message") != res) {
             container.append(res)
