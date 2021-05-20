@@ -133,18 +133,9 @@ if (isset($_COOKIE["username"]) !== null) {
 <body>
 
   <nav class="navbar navbar-dark bg-dark">
-    <div class="container d-flex justify-content-between">
+    <div class="container">
       <a class="navbar-brand" href="#">SayHaii</a>
-      <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" href="#">Action</a></li>
-    <li><a class="dropdown-item" href="#">Another action</a></li>
-    <li><a class="dropdown-item" href="#">Something else here</a></li>
-  </ul>
-</div>
+      
       <div class="btn-group">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
           <?=$_COOKIE["username"]?>
