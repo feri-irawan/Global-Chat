@@ -75,7 +75,7 @@ if (isset($_POST["update"])) {
               <div class="chat-body">
                 <p>
                   <br>
-                  <strong>Hai '.$_COOKIE["username"].', </strong><br>
+                  <strong>Hi '.$_COOKIE["username"].', </strong><br>
                   Hingga saat ini belum ada pesan yang terkirim. <br>
                   Jadilah yang pertama! 
                 </p>
