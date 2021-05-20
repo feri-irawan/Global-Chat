@@ -270,12 +270,29 @@ if (isset($_COOKIE["username"]) != "") {
       })
     }
 
+    function getChatStatus() {
+      $.ajax({
+        url: "chat-status.json",
+        dataType: "json",
+        success: function (res) {
+          console.log(res)
+          return res.update_status;
+        },
+        error: function (x, s, e) {
+          console.log(x)
+        } 
+      })
+    }
+
     // auto Update chat
     $("body").on("load", function () {
       setInterval(function () {
         getChat();
       }, 1000)
     })
+
+
+
 
 
     // Form chat height
