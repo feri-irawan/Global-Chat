@@ -262,7 +262,7 @@ if (isset($_COOKIE["username"]) != "") {
           Cookies.set("message", null);
           
           if (Cookies.get("message") != res) {
-            container.html(res)
+            container.append(res)
             Cookies.set("message", res);
           }
           
