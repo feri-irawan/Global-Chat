@@ -166,7 +166,6 @@ if (isset($_COOKIE["username"])) {
         </div>
         <div class="ps-3 d-flex align-items-bottom">
           <button type="submit" id="btn-send" class="btn btn-primary">Send</button>
-          <a href="#" onclick="pushnotification()" class="btn ms-3 btn-success">Push</a>
         </div>
       </form>
     </main>
