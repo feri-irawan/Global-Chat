@@ -26,9 +26,6 @@ if (isset($_COOKIE["username"])) {
 
   <?php if ($loginStatus == true): ?>
   <style>
-    body {
-      background: red;
-    }
     #chat-wrapper {
       overflow: hidden;
       height: calc(100vh - 7.5rem);
