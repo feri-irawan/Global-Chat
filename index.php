@@ -236,6 +236,9 @@ if (isset($_COOKIE["username"])) {
         data: "update",
         success: function (res) {
           $("#chat-container").html(res);
+          let btnSend = $("#btn-send");
+   
+          btnSend.html("Send")
         }
       })
 
