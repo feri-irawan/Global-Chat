@@ -19,6 +19,10 @@ if (isset($_COOKIE["username"])) {
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
 
   <?php if ($loginStatus == true): ?>
   <style>
@@ -48,19 +52,6 @@ if (isset($_COOKIE["username"])) {
     }
     #chat-input {
       max-height: 5rem;
-    }
-    .loading-spin {
-      animation: spinner 1s infinite;
-      animation-timing-function: linear;
-    }
-    
-    @keyframes spinner {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
     }
 
     .chat {
@@ -116,7 +107,8 @@ if (isset($_COOKIE["username"])) {
       align-items: center;
     }
   </style>
-  <?php endif;?>
+  <?php endif;
+  ?>
 </head>
 
 <body>
@@ -165,16 +157,13 @@ if (isset($_COOKIE["username"])) {
           <textarea name="chat" id="chat-input" rows="1" class="form-control" required></textarea>
         </div>
         <div class="ps-3 d-flex align-items-bottom">
-          <button type="submit" id="btn-send" class="btn btn-primary">Send</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+          <button id="pushnotification" type="button" class="btn ms-3 btn-success">Push</button>
         </div>
       </form>
     </main>
   </section>
 
-
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/push-js@1.1.1/dist/Push.min.js"></script>
-  
   <script>
     setInterval(function () {
       getChat()
@@ -183,7 +172,8 @@ if (isset($_COOKIE["username"])) {
     $("#chat-form").submit(function (e) {
 
       let chat = $("#chat-input").val();
-      
+      console.log(chat)
+
       sendChat(chat);
 
       e.preventDefault();
@@ -191,8 +181,6 @@ if (isset($_COOKIE["username"])) {
 
 
     function sendChat(chat) {
-      
-      
       getChat();
       
       let username = Cookies.get("username");
