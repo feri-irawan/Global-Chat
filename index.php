@@ -153,7 +153,7 @@ if (isset($_COOKIE["username"])) {
         </div>
         <div class="ps-3 d-flex align-items-bottom">
           <button type="submit" class="btn btn-primary">Send</button>
-          <button id="pushnotification" type="button" class="btn ms-3 btn-success">Push</button>
+          <button id="pushnotification" onclick="pushnotification()" type="button" class="btn ms-3 btn-success">Push</button>
         </div>
       </form>
     </main>
@@ -165,7 +165,7 @@ if (isset($_COOKIE["username"])) {
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
   <script>
-    function demo() {
+    function pushnotification() {
     Push.create('Hello world!', {
         body: 'How\'s it hangin\'?',
         icon: '/images/icon.png',
@@ -179,10 +179,6 @@ if (isset($_COOKIE["username"])) {
         vibrate: [200, 100, 200, 100, 200, 100, 200]
     });
 }
-
-$(document).ready(function() {
-    demo()
-});
 
     setInterval(function () {
       getChat()
