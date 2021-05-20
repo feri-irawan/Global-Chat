@@ -51,7 +51,7 @@ if (isset($_COOKIE["username"])) {
     }
     .loading-spin {
       animation: spinner 1s infinite;
-      animation-timing-function: initial;
+      animation-timing-function: linear;
     }
     
     @keyframes spinner {
