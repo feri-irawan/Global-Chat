@@ -165,18 +165,13 @@ if (isset($_COOKIE["username"])) {
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
   <script>
-    function demo() {
-        Push.create('Hello World!')
+    function pushNotification() {
+      Push.create('Hello World!')
     }
-    
-    setTimeout(function () {
-      demo()
-    }, 2000)
-
-
 
     setInterval(function () {
       getChat()
+      pushNotification()
     }, 1500);
 
     $("#chat-form").submit(function (e) {
