@@ -288,9 +288,8 @@ if (isset($_COOKIE["username"]) != "") {
     // auto Update chat
     $("body").on("load", function () {
       setInterval(function () {
-        Cookies.set("update_status", 0)
         
-        if (Cookies.get("update_status") != getChatStatus()) {
+        if(getChatStatus() != getChatStatus() + 1) {
           getChat();
         }
         
