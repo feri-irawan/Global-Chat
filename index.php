@@ -286,7 +286,7 @@ if (isset($_COOKIE["username"]) != "") {
     }
 
     // auto Update chat
-    $("body").on("load", function () {
+    $(document).ready(, function () {
       setInterval(function () {
         Cookies.set("update_status", getChatStatus())
         
