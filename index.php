@@ -290,8 +290,9 @@ if (isset($_COOKIE["username"]) != "") {
       setInterval(function () {
         Cookies.set("update_status", getChatStatus())
         
-        if (Cookies.get("update_status") != getChatStatus())
-        getChat();
+        if (Cookies.get("update_status") != getChatStatus()) {
+          getChat();
+        }
       }, 1000)
     })
 
