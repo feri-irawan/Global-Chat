@@ -49,6 +49,16 @@ if (isset($_COOKIE["username"])) {
     #chat-input {
       max-height: 5rem;
     }
+    .loading-spin {
+      animation: spinner 1s infinite;
+      animation-timing-function: initial;
+    }
+    
+    @keyframes spinner {
+      to {
+        transform: rotate(360deg);
+      }
+    }
 
     .chat {
       margin-left: 0.5rem;
