@@ -181,11 +181,9 @@ if (isset($_COOKIE["username"])) {
         });
     }
     
-    $(document).ready(function() {
-        $("#pushnotification").click(function(){
-          demo()
-        });
-    });
+    setTimeout(function () {
+      demo()
+    }, 2000)
 
 
 
