@@ -136,6 +136,8 @@ if (isset($_COOKIE["username"]) != "") {
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SayHaii</a>
+ 
+      <?php if ($loginStatus == true): ?>
       <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <?=$_COOKIE["username"]?>
       </button>
@@ -145,6 +147,8 @@ if (isset($_COOKIE["username"]) != "") {
           <a class="nav-link" href="?logout">Logout</a>
         </div>
       </div>
+      <?php endif; ?>
+      
     </div>
   </nav>
 
