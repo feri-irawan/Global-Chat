@@ -183,6 +183,14 @@ if (isset($_COOKIE["username"])) {
     $("#chat-form").submit(function (e) {
 
       let chat = $("#chat-input").val();
+      
+      sendChat(chat);
+
+      e.preventDefault();
+    });
+
+
+    function sendChat(chat) {
       let btnSend = $("#btn-send");
    
       btnSend.html(`
@@ -192,13 +200,6 @@ if (isset($_COOKIE["username"])) {
       </svg>
       `);
       
-      sendChat(chat);
-
-      e.preventDefault();
-    });
-
-
-    function sendChat(chat) {
       getChat();
       
       let username = Cookies.get("username");
