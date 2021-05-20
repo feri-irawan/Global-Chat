@@ -5,25 +5,34 @@ header('Access-Control-Allow-Methods: GET, POST');
 date_default_timezone_set("Asia/Makassar");
 
 
-if (isset($_POST["chat"])) {
+if (isset($_POST["message"])) {
   $username = $_POST["username"];
-  $chat = $_POST["chat"];
+  $date = $_POST["date"];
+  $message = $_POST["message"];
 
-  if ($chat != null) {
+  if ($message != null) {
     $db = json_decode(file_get_contents("chat.json"), true);
 
     $chat_array = [
-      "username" => $username,
-      "message" => htmlspecialchars($chat),
-      "date" => date("d/m.Y"),
-      "timestamp" => date("h:i")
-    ];
-
-    $db[] = $chat_array;
+        "username" => $username,
+        "message" => htmlspecialchars($message),
+        "date" => $date,
+        "timestamp" => date("h:i")
+      ];
+    
+    
+    $db["chat"][] = $chat_array;
 
     file_put_contents("chat.json", json_encode($db, JSON_PRETTY_PRINT));
   }
 }
+
+
+
+
+
+
+
 
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
@@ -31,13 +40,14 @@ if (isset($_POST["update"])) {
   $db = json_decode(file_get_contents("chat.json"));
 
   if ($db != null) {
-    foreach ($db as $chat) {
+    
+    foreach ($db->chat as $chat) {
 
       $username = $chat->username;
       $message = nl2br($chat->message);
       $date = $chat->date;
       $timestamp = $chat->timestamp;
-
+      
       echo '<div class="chat">
               <div class="chat-box">
                 <div class="chat-header">
@@ -52,6 +62,27 @@ if (isset($_POST["update"])) {
             </div>
             ';
     }
+  } else {
+    echo '<div class="chat">
+            <div class="chat-box">
+              <div class="chat-header">
+                <div class="chat-username fw-bold">SayHaii [bot]</div>
+                <div class="chat-time">
+                  <span class="chat-date">'.date("d/m/Y").'</span>
+                  <span class="chat-timestamp">'.date("H.i").'</span>
+                </div>
+              </div>
+              <div class="chat-body">
+                <p>
+                  <br>
+                  <strong>Hai '.$_COOKIE["username"].', </strong><br>
+                  Hingga saat ini belum ada pesan yang terkirim. <br>
+                  Jadilah yang pertama! 
+                </p>
+              </div>
+            </div>
+          </div>
+          ';
   }
 }
 
