@@ -260,7 +260,7 @@ if (isset($_COOKIE["username"]) != "") {
         success: function (res) {
           let container = $("#chat-container");
         
-          if (container.html() !== res) {
+          if (container.html() != res) {
             container.html(res)
           }
           
