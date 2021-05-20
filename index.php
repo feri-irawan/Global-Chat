@@ -41,12 +41,14 @@ if (isset($_COOKIE["username"])) {
       left: 0;
       right: 0;
     }
+/*     
 @media (min-width: 700px) {
-      #chat-form-container {
-        left: calc(10% + .7rem);
-        right: calc(10% + .7rem);
-      }
-    }
+  #chat-form-container {
+    left: calc(10% + .7rem);
+    right: calc(10% + .7rem);
+  }
+}
+ */
     #chat-input {
       max-height: 5rem;
     }
