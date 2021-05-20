@@ -19,7 +19,11 @@ if (isset($_COOKIE["username"])) {
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+ 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.8/push.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+
 
   <?php if ($loginStatus == true): ?>
   <style>
@@ -61,7 +65,7 @@ if (isset($_COOKIE["username"])) {
       color: #444444;
       border-radius: 0 5px 5px 5px;
       font-size: 0.8rem;
-      max-width: 80%;
+      max-width: max-content;
       display: block;
       position: relative;
     }
@@ -111,8 +115,9 @@ if (isset($_COOKIE["username"])) {
 <body>
 
   <nav class="navbar navbar-dark bg-dark">
-    <div class="container">
+    <div class="container d-flex justify-content-between">
       <a class="navbar-brand" href="#">SayHaii</a>
+      <span id="testcookie" class="text-white"></span>
     </div>
   </nav>
 
@@ -150,24 +155,43 @@ if (isset($_COOKIE["username"])) {
       </div>
       <form id="chat-form" class="d-flex p-3">
         <div class="w-100">
-          <textarea name="chat" id="chat-input" rows="1" class="form-control"></textarea>
-          <input type="hidden" name="username" value="<?= $_COOKIE['username'] ?>" />
+          <textarea name="chat" id="chat-input" rows="1" class="form-control" required></textarea>
         </div>
         <div class="ps-3 d-flex align-items-bottom">
           <button type="submit" class="btn btn-primary">Send</button>
+          <button id="pushnotification" type="button" class="btn ms-3 btn-success">Push</button>
         </div>
       </form>
     </main>
   </section>
 
   <script>
+    function demo() {
+        Push.create("Test push notification", {
+            body: "hai",
+            icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfB9yQjFaiZYa0eLZGsCHf8VKCDmNL8-Gi9A&usqp=CAU',
+            link: 'https//localhost',
+            timeout: 4000,
+            onClick: function () {
+                console.log("Fired!");
+                window.focus();
+                this.close();
+            },
+            vibrate: [200, 100, 200, 100, 200, 100, 200]
+        });
+    }
+    
+    $(document).ready(function() {
+        $("#pushnotification").click(demo);
+    });
+
     setInterval(function () {
       getChat()
     }, 1500);
 
     $("#chat-form").submit(function (e) {
 
-      let chat = $(this).serialize();
+      let chat = $("#chat-input").val();
       console.log(chat)
 
       sendChat(chat);
@@ -178,10 +202,23 @@ if (isset($_COOKIE["username"])) {
 
     function sendChat(chat) {
       getChat();
+      
+      let username = Cookies.get("username");
+      let date = new Date();
+      let day = date.getDay();
+      let month = date.getMonth();
+      let year = date.getFullYear();
+          date = day +"/"+ month +"/"+ year;
+      let message = chat;
+      
       $.ajax({
-        url: "https://pixwebsite1998.000webhostapp.com/v2/global-chat/proses.php",
+        url: "proses.php",
         type: "post",
-        data: chat,
+        data: {
+          "username": username,
+          "date": "1/5/2020",
+          "message": message
+        },
         success: function () {
           getChat();
           $("#chat-input").val("");
@@ -192,9 +229,11 @@ if (isset($_COOKIE["username"])) {
       })
     }
 
+
+
     function getChat() {
       $.ajax({
-        url: "https://pixwebsite1998.000webhostapp.com/v2/global-chat/proses.php",
+        url: "proses.php",
         type: "post",
         data: "update",
         success: function (res) {
@@ -256,11 +295,13 @@ if (isset($_COOKIE["username"])) {
         }
       });
 
-      $("#btn-to-newchat").click(function () {
+    // btn to new chat
+    $("#btn-to-newchat").click(function () {
         $("#chat").animate({
           scrollTop: $('#chat').get(0).scrollHeight
         }, 1000);
       });
+
     </script>
     <?php endif; ?>
   </body>
