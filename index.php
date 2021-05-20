@@ -260,9 +260,8 @@ if (isset($_COOKIE["username"]) != "") {
         success: function (res) {
           let container = $("#chat-container");
           
-          if (Cookies.get("message") != res) {
+          if (container.html() != res) {
             container.append(res)
-            Cookies.set("message", res);
           }
           
           let btnSend = $("#btn-send");
