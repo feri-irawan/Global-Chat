@@ -259,9 +259,10 @@ if (isset($_COOKIE["username"]) != "") {
         data: "update",
         success: function (res) {
           let container = $("#chat-container");
-        
-          if (container.html() != res) {
+          
+          if (Cookies.get("res") != res) {
             container.html(res)
+            Cookies.set("message", res);
           }
           
           let btnSend = $("#btn-send");
