@@ -76,8 +76,8 @@ if (isset($_POST["update"])) {
                 <p>
                   <br>
                   <strong>Hello '.$_COOKIE["username"].', </strong><br>
-                  Hingga saat ini belum ada pesan yang terkirim. <br>
-                  Jadilah yang pertama! 
+                  Until now, no messages have been sent.  <br>
+                  Be the first!
                 </p>
               </div>
             </div>
