@@ -52,6 +52,8 @@ if (isset($_COOKIE["username"])) {
     }
 
     .chat {
+      margin-left: 0.5rem;
+      margin-bottom: 1rem;
       filter: drop-shadow(0px 2px 3px #00000020);
     }
     .chat-box {
@@ -62,8 +64,6 @@ if (isset($_COOKIE["username"])) {
       max-width: 80%;
       display: block;
       position: relative;
-      margin-left: 0.5rem;
-      margin-bottom: 1rem;
     }
     .chat-box::before {
       content: "";
