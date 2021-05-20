@@ -136,7 +136,7 @@ if (isset($_COOKIE["username"]) !== null) {
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SayHaii</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <?=$_COOKIE["username"]?>
       </button>
       <div class="collapse navbar-collapse" id="navbarDropdown">
         <div class="navbar-nav">
