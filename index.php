@@ -9,7 +9,7 @@ if (isset($_GET["logout"])) {
   header("location: index.php");
 }
 
-if (isset($_COOKIE["username"]) !== null) {
+if (isset($_COOKIE["username"]) != null) {
   $loginStatus = true;
 }
 ?>
