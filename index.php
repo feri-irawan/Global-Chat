@@ -280,6 +280,7 @@ if (isset($_COOKIE["username"]) != "") {
         },
         error: function (x, s, e) {
           console.log(x)
+          return 0;
         } 
       })
     }
