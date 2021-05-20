@@ -91,6 +91,12 @@ if (isset($_COOKIE["username"])) {
     .chat-time {
       font-size: 0.75rem;
     }
+    .chat-date {
+      display: none;
+    }
+    .chat:hover .chat-date {
+      display: inline-block;
+    }
 
     #btn-to-newchat {
       position: fixed;
