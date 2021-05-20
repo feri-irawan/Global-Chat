@@ -91,9 +91,6 @@ if (isset($_COOKIE["username"])) {
     .chat-time {
       font-size: 0.75rem;
     }
-    /* .chat-time .chat-date {
-      display: none;
-    } */
 
     #btn-to-newchat {
       position: fixed;
@@ -105,6 +102,19 @@ if (isset($_COOKIE["username"])) {
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    
+    .loading-spin {
+      animation: spinner 1s infinite;
+      animation-timing-function: linear;
+    }
+    @keyframes spinner {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
   </style>
   <?php endif;
