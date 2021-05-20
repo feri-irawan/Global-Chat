@@ -150,13 +150,14 @@ if (isset($_COOKIE["username"]) != "") {
 
   <?php if ($loginStatus != true): ?>
   <section class="container p-3">
-    <h5>Hai, selamat datang</h5>
+    <h5>Hi, welcome</h5>
     <p class="text-muted">
-      Percakapan global sederhana.
+      Simple global chat.
     </p>
     <p>
-      Silahkan tulis username anda untuk memulai percakapan!
+      Please enter your username to start chatting!
     </p>
+
 
     <form action="" method="post">
       <div class="input-group">
