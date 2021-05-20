@@ -33,7 +33,7 @@ if (isset($_COOKIE["username"])) {
     #chat-container {
       overflow-y: scroll;
       height: 100%;
-      padding: 0rem .5rem;
+      padding: 1rem .5rem;
     }
     #chat-form-container {
       position: fixed;
