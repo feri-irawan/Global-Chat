@@ -293,6 +293,8 @@ if (isset($_COOKIE["username"]) != "") {
         if (Cookies.get("update_status") != getChatStatus()) {
           getChat();
         }
+        
+        $("#chat-input").val(Cookies.get("update_status"))
       }, 1000)
     })
 
