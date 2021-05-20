@@ -286,16 +286,15 @@ if (isset($_COOKIE["username"]) != "") {
     }
 
     // auto Update chat
-    $(document).ready(, function () {
+    $("body").on("load", function () {
       setInterval(function () {
-        Cookies.set("update_status", getChatStatus())
+        Cookies.set("update_status", 0)
         
         if (Cookies.get("update_status") != getChatStatus()) {
           getChat();
         }
         
       }, 1000)
-      alert(Cookies.get("update_status"))
     })
 
 
