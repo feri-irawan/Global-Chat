@@ -262,6 +262,8 @@ if (isset($_COOKIE["username"]) != "") {
           
           if (container.html() != res) {
             container.append(res)
+          } else {
+            container.append("sama")
           }
           
           let btnSend = $("#btn-send");
