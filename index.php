@@ -150,7 +150,7 @@ if (isset($_COOKIE["username"]) != "") {
 
   <?php if ($loginStatus != true): ?>
   <section class="container p-3">
-    <h5>Hai, selamat datang di SayHaii</h5>
+    <h5>Hai, selamat datang</h5>
     <p class="text-muted">
       Percakapan global sederhana.
     </p>
