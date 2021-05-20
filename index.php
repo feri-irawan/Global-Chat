@@ -289,7 +289,7 @@ if (isset($_COOKIE["username"]) != "") {
     $("body").on("load", function () {
       setInterval(function () {
         
-        if(getChatStatus() != 0) {
+        if(getChatStatus() != getChatStatus()) {
           getChat();
         }
         
