@@ -167,18 +167,7 @@ if (isset($_COOKIE["username"])) {
 
   <script>
     function demo() {
-        Push.create("Test push notification", {
-            body: "hai",
-            icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfB9yQjFaiZYa0eLZGsCHf8VKCDmNL8-Gi9A&usqp=CAU',
-            link: 'https//localhost',
-            timeout: 4000,
-            onClick: function () {
-                console.log("Fired!");
-                window.focus();
-                this.close();
-            },
-            vibrate: [200, 100, 200, 100, 200, 100, 200]
-        });
+        Push.create('Hello World!')
     }
     
     setTimeout(function () {
