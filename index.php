@@ -18,8 +18,8 @@ if (isset($_COOKIE["username"])) {
   <title>SayHaii - Global chat sederhana</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
@@ -131,7 +131,15 @@ if (isset($_COOKIE["username"])) {
   <nav class="navbar navbar-dark bg-dark">
     <div class="container d-flex justify-content-between">
       <a class="navbar-brand" href="#">SayHaii</a>
-      <span id="testcookie" class="text-white"></span>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <?=$_COOKIE["username"]?>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Donasi</a></li>
+          <li><a class="dropdown-item" href="?logout">Logout</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
