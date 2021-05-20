@@ -159,6 +159,7 @@ if (isset($_COOKIE["username"])) {
     </main>
   </section>
 
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/push-js@1.1.1/dist/Push.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
