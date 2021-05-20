@@ -4,7 +4,11 @@ if (isset($_POST["username"])) {
   header("location: index.php");
 }
 
-if (isset($_COOKIE["username"])) {
+if (isset($_GET["logout"])) {
+  setcookie("username", null, time() - 3600);
+}
+
+if (isset($_COOKIE["username"]) !== null) {
   $loginStatus = true;
 }
 ?>
