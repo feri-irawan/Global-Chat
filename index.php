@@ -167,8 +167,7 @@ if (isset($_COOKIE["username"])) {
           <textarea name="chat" id="chat-input" rows="1" class="form-control" required></textarea>
         </div>
         <div class="ps-3 d-flex align-items-bottom">
-          <button type="submit" class="btn btn-primary">Send</button>
-          <button id="pushnotification" type="button" class="btn ms-3 btn-success">Push</button>
+          <button type="submit" id="btn-send" class="btn btn-primary">Send</button>
         </div>
       </form>
     </main>
