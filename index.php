@@ -305,13 +305,16 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       // jika dokument siap maka buat warna acak
       $(document).ready(() => {
         // array warna untuk membuat warna acak
-        const colorArray = ["#ff002b",
+        const colorArray = [
+          "#ff002b",
           "#ffe900",
           "#17c426",
           "#00cbfd",
           "#ed00ff",
           "#ff7e00",
-          "#c200ff"];
+          "#c200ff"
+        ];
+
         usernameColor = randomColor(colorArray);
       });
 
