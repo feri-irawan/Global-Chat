@@ -292,7 +292,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       "#c200ff"
     ];
 
-    usernameColor = randArray(colorArray);
+    var usernameColor = randArray(colorArray);
 
 
     /**
