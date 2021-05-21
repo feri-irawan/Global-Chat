@@ -405,23 +405,22 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       }
 
 
-      // program to get a random item from an array
+      const array = ["#ff002b", "kuning", "hijau", "biru"];
 
-      function getRandomItem(arr) {
+      $("button").click(() => {
+        const usernameColor = randomColor(array);
+        console.log(usernameColor);
+      });
 
-        // get random index value
-        const randomIndex = Math.floor(Math.random() * arr.length);
 
-        // get random item
-        const item = arr[randomIndex];
+      function randomColor(arr) {
+        // membuat index acak
+        const indexAcak = Math.floor(Math.random() * arr.length);
 
+        // menggambil array acak
+        const item = arr[indexAcak];
         return item;
       }
-
-      const array = [1, 'hello', 5, 8];
-
-      const result = getRandomItem(array);
-      console.log(result);
     </script>
     <?php endif; ?>
   </body>
