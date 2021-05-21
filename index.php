@@ -77,6 +77,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       max-width: max-content;
       display: block;
       position: relative;
+      word-wrap: break-word;
     }
     .chat-box::before {
       content: "";
