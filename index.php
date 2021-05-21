@@ -302,11 +302,11 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       var message = chat;
 
       // array warna untuk membuat warna acak
-      const array = ["#ff002b", "#ffe900", "#17c426", "#00cbfd", "#ed00ff", "#ff7e00", "#c200ff"];
+      const colorArray = ["#ff002b", "#ffe900", "#17c426", "#00cbfd", "#ed00ff", "#ff7e00", "#c200ff"];
 
       // jika dokument siap maka buat warna acak
       $(document).ready(() => {
-        usernameColor = randomColor(array);
+        usernameColor = randomColor(colorArray);
       });
 
       // melakukan HttpRequest
