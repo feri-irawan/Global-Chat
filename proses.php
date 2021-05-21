@@ -81,7 +81,7 @@ if (isset($_POST["update"])) {
     echo '<div class="chat">
             <div class="chat-box">
               <div class="chat-header">
-                <div class="chat-username fw-bold" style="color: #0ca3ff">SayHaii [bot]</div>
+                <div class="chat-username fw-bold" style="color: var(--bs-primary)">SayHaii [bot]</div>
                 <div class="chat-time">
                   <span class="chat-date">'.date("d/m/Y").'</span>
                   <span class="chat-timestamp">'.date("H.i").'</span>
