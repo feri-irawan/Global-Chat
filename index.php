@@ -281,7 +281,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     });
 
 
-
+    // membuat warna acak
     const colorArray = [
       "#ff002b",
       "#ffe900",
