@@ -300,6 +300,14 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       date = day +"/"+ month +"/"+ year;
       let message = chat;
 
+      // array warna untuk membuat warna acak
+      const array = ["#ff002b", "kuning", "hijau", "biru"];
+
+      // jika dokument siap
+      $(document).ready(() => {
+        const usernameColor = randomColor(array);
+      });
+
       // melakukan HttpRequest
       $.ajax({
         url: "proses.php",
@@ -405,15 +413,12 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       }
 
 
-      const array = ["#ff002b", "kuning", "hijau", "biru"];
-
-      $("button").click(() => {
-        const usernameColor = randomColor(array);
-        console.log(usernameColor);
-      });
-
-
-      function randomColor(arr) {
+      /**
+      * =================
+      * fungsi acal array
+      * =================
+      */
+      function rand(arr) {
         // membuat index acak
         const indexAcak = Math.floor(Math.random() * arr.length);
 
