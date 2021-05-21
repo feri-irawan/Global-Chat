@@ -281,6 +281,20 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     });
 
 
+
+    const colorArray = [
+      "#ff002b",
+      "#ffe900",
+      "#17c426",
+      "#00cbfd",
+      "#ed00ff",
+      "#ff7e00",
+      "#c200ff"
+    ];
+
+    usernameColor = randArray(colorArray);
+
+
     /**
     * =================
     * fungsi untuk mengirim chat ke server
@@ -293,26 +307,12 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
       // memasuka data ke dalam variable
       var username = Cookies.get("username");
-      var usernameColor;
       var date = new Date();
       var day = date.getDay();
       var month = date.getMonth();
       var year = date.getFullYear();
       date = day +"/"+ month +"/"+ year;
       var message = chat;
-
-      const colorArray = [
-        "#ff002b",
-        "#ffe900",
-        "#17c426",
-        "#00cbfd",
-        "#ed00ff",
-        "#ff7e00",
-        "#c200ff"
-      ];
-
-      usernameColor = randArray(colorArray);
-
 
       // melakukan HttpRequest
       $.ajax({
