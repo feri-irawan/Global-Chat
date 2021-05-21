@@ -257,10 +257,14 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     }
 
 
-    $("#chat-form").submit(function (e) {
-      let chat = $("#chat-input").val();
-      let btnSend = $("#btn-send");
 
+    $("#chat-form").submit(function (e) {
+
+      // memasukan value #chat-input kedalam variable
+      let chat = $("#chat-input").val();
+
+      // mengganti teks "send" menjadi icon pada tombol
+      let btnSend = $("#btn-send");
       btnSend.html(`
         <svg xmlns="http://www.w3.org/2000/svg" class="loading-spin" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -268,14 +272,25 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         </svg>
         `);
 
+      // melakukan pengisiman message
       sendChat(chat);
 
+      // jika form di submit halaman tidak melakukan refresh
       e.preventDefault();
     });
 
+
+    /**
+    * =================
+    * fungsi untuk mengirim chat ke server
+    * =================
+    */
     function sendChat(chat) {
+
+      // jika fungsi sendChat() digunakan maka lakukan "update" chat sekali
       getChat();
 
+      // memasuka data ke dalam variable
       let username = Cookies.get("username");
       let date = new Date();
       let day = date.getDay();
@@ -284,6 +299,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       date = day +"/"+ month +"/"+ year;
       let message = chat;
 
+      // melakukan HttpRequest
       $.ajax({
         url: "proses.php",
         type: "post",
@@ -293,7 +309,11 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           "message": message
         },
         success: function () {
+
+          // lakukan getChat() jika message berhasil dikirim
           getChat();
+
+          // mengosongkan value dari #chat-input
           $("#chat-input").val("");
         },
         error: function (x, s, e) {
@@ -302,12 +322,19 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       })
     }
 
+    /**
+    * =================
+    * fungsi untuk mengambil data chat dan memperbaruhi isi #chat-container
+    * ==================
+    */
     function getChat() {
       $.ajax({
         url: "proses.php",
         type: "post",
         data: "update",
         success: function (res) {
+
+          // jika berhasil mengambil data maka update isi #chat-container
           $("#chat-container").html(res);
 
           let btnSend = $("#btn-send");
@@ -320,30 +347,9 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       })
     }
 
-    function getChatStatus() {
-      $.ajax({
-        url: "chat-status.json",
-        dataType: "json",
-        success: function (res) {
-          console.log(res)
-          return res.update_status;
-        },
-        error: function (x, s, e) {
-          console.log(x)
-          return 0;
-        }
-      })
-    }
-
-    // auto Update chat
-    $("body").on("load", function () {
-      setInterval(function () {
-        getChat();
-      }, 1000)
-    })
 
 
-    // Form chat height
+    // mengatur tinggi form chat
     $("#chat-input").on("keyup", function () {
       let input = $(this);
       let chatWrapper = $("#chat-wrapper");
@@ -384,7 +390,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         }
       });
 
-      // btn to new chat
+      // tombol ke chat paling bawah
       $("#btn-to-newchat").click(function () {
         $("#chat").animate({
           scrollTop: $('#chat').get(0).scrollHeight
