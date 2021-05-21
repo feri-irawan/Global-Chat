@@ -201,9 +201,53 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   </section>
 
   <script>
-    setInterval(function () {
-      getChat()
-    }, 1500);
+
+    // membuat nila berbeda agar halaman melakuan request data pertamakali
+    var statusOld = 0; statusNew = 1;
+
+    // cek status lama, melakukan interval lebih lambat 3 detik dari statusNew
+    // untuk membuat nilai statusOld berbeda dengan statusNew)
+    var cekStatusLama = setInterval(() => {
+      statusOld = statusChat()
+    }, 5000)
+
+    // cek status baru, melakukan interval lebih cepat 3 detik dari statusOld
+    // untuk membuat nilai statusNew berbeda dengan statusOld)
+    var cekStatusBaru = setInterval(() => {
+      statusNew = statusChat()
+    }, 2000)
+
+    // cek kesamaan statusOld dengan statusNew setiap 1 detik
+    setInterval(() => {
+
+      if (statusOld == statusNew) {
+        // jika status chat yang lama SUDAH SAMA dengan yang baru maka stop request chat.
+        konsol("Stop request: " + statusOld)
+
+      } else {
+
+        // jika status chat yang lama TIDAK SAMA dengan yang baru maka lakukan request chat.
+        konsol("Melakukan request: " + statusNew)
+        getChat()
+      }
+
+    }, 1000)
+
+    // mengambil data statusChat
+    function statusChat() {
+      const path = "https://sayhaii.herokuapp.com/chat-status.json";
+      var xhr = $.ajax({
+        url: path,
+        async: false
+      });
+      return xhr.responseJSON.update_status
+    }
+
+    // fungsi console biasa agar lebih praktis
+    function konsol(val) {
+      return console.log(val)
+    }
+
 
     $("#chat-form").submit(function (e) {
 
