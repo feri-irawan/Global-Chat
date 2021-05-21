@@ -262,10 +262,10 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     $("#chat-form").submit(function (e) {
 
       // memasukan value #chat-input kedalam variable
-      let chat = $("#chat-input").val();
+      var chat = $("#chat-input").val();
 
       // mengganti teks "send" menjadi icon pada tombol
-      let btnSend = $("#btn-send");
+      var btnSend = $("#btn-send");
       btnSend.html(`
         <svg xmlns="http://www.w3.org/2000/svg" class="loading-spin" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
@@ -292,20 +292,21 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       getChat();
 
       // memasuka data ke dalam variable
-      let username = Cookies.get("username");
-      let date = new Date();
-      let day = date.getDay();
-      let month = date.getMonth();
-      let year = date.getFullYear();
+      var username = Cookies.get("username");
+      var usernameColor;
+      var date = new Date();
+      var day = date.getDay();
+      var month = date.getMonth();
+      var year = date.getFullYear();
       date = day +"/"+ month +"/"+ year;
-      let message = chat;
+      var message = chat;
 
       // array warna untuk membuat warna acak
       const array = ["#ff002b", "kuning", "hijau", "biru"];
 
-      // jika dokument siap
+      // jika dokument siap maka buat warna acak
       $(document).ready(() => {
-        const usernameColor = randomColor(array);
+        usernameColor = randomColor(array);
       });
 
       // melakukan HttpRequest
@@ -314,6 +315,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         type: "post",
         data: {
           "username": username,
+          "color": usernameColor,
           "date": "1/5/2020",
           "message": message
         },
@@ -347,7 +349,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           // jika berhasil mengambil data maka update isi #chat-container
           $("#chat-container").html(res);
 
-          let btnSend = $("#btn-send");
+          var btnSend = $("#btn-send");
           btnSend.html("Send")
         }
       })
@@ -361,11 +363,11 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
     // mengatur tinggi form chat
     $("#chat-input").on("keyup", function () {
-      let input = $(this);
-      let chatWrapper = $("#chat-wrapper");
-      let btnNewChat = $("#btn-to-newchat");
+      var input = $(this);
+      var chatWrapper = $("#chat-wrapper");
+      var btnNewChat = $("#btn-to-newchat");
 
-      let line = (input.val().match(/\n/g) || []).length;
+      var line = (input.val().match(/\n/g) || []).length;
 
       switch (line) {
         case 0:
