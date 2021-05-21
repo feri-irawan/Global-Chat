@@ -258,12 +258,6 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     }
 
 
-    // fungsi console biasa agar lebih praktis
-    function konsol(val) {
-      return console.log(val)
-    }
-
-
     // ketika #chat-form di submit
     $("#chat-form").submit(function (e) {
 
@@ -324,7 +318,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           $("#chat-input").val("");
         },
         error: function (x, s, e) {
-          console.log(x)
+          konsol(x)
         }
       })
     }
@@ -405,6 +399,10 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         }, 1000);
       });
 
+      // fungsi console biasa agar lebih praktis
+      function konsol(val) {
+        return console.log(val)
+      }
     </script>
     <?php endif; ?>
   </body>
