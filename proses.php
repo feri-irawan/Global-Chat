@@ -58,6 +58,7 @@ if (isset($_POST["update"])) {
     foreach ($db->chat as $chat) {
 
       $username = $chat->username;
+      $color = $chat->color;
       $message = nl2br($chat->message);
       $date = $chat->date;
       $timestamp = $chat->timestamp;
@@ -65,7 +66,7 @@ if (isset($_POST["update"])) {
       echo '<div class="chat">
               <div class="chat-box">
                 <div class="chat-header">
-                  <div class="chat-username fw-bold">'.$username.'</div>
+                  <div class="chat-username fw-bold" style="color: '.$color.'">'.$username.'</div>
                   <div class="chat-time">
                     <span class="chat-date">'.$date.'</span>
                     <span class="chat-timestamp">'.$timestamp.'</span>
@@ -80,7 +81,7 @@ if (isset($_POST["update"])) {
     echo '<div class="chat">
             <div class="chat-box">
               <div class="chat-header">
-                <div class="chat-username fw-bold">SayHaii [bot]</div>
+                <div class="chat-username fw-bold" style="color: #0ca3ff">SayHaii [bot]</div>
                 <div class="chat-time">
                   <span class="chat-date">'.date("d/m/Y").'</span>
                   <span class="chat-timestamp">'.date("H.i").'</span>
