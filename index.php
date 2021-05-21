@@ -224,7 +224,6 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       e.preventDefault();
     });
 
-
     function sendChat(chat) {
       getChat();
       
@@ -253,8 +252,6 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         }
       })
     }
-
-
 
     function getChat() {
       $.ajax({
@@ -292,11 +289,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     // auto Update chat
     $("body").on("load", function () {
       setInterval(function () {
-        
-        
           getChat();
-        
-        
       }, 1000)
     })
 
