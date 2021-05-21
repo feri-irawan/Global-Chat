@@ -42,7 +42,8 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     #chat-container {
       overflow-y: scroll;
       height: 90%;
-      width: 95%;
+      width: 100%;
+      margin-right: 1rem;
       padding: 1rem .5rem 2rem;
     }
     #chat-form-container {
