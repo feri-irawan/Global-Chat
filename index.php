@@ -390,7 +390,8 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           input.css("height", "5rem")
           btnNewChat.css("bottom", "calc(5rem + 2.5rem)");
         }
-      });
+      }
+    );
 
       // tombol ke chat paling bawah
       $("#btn-to-newchat").click(function () {
