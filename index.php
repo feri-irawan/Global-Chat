@@ -315,7 +315,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           "#c200ff"
         ];
 
-        usernameColor = randomColor(colorArray);
+        usernameColor = rand(colorArray);
       });
 
       // melakukan HttpRequest
