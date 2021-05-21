@@ -121,7 +121,8 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
     }
 
     .loading-spin {
-      animation: spinner1s infinite;
+      animation: spinner infinite;
+      animation-duration: 1s;
       animation-timing-function: linear;
     }
 @keyframes spinner {
