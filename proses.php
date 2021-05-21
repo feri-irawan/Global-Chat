@@ -10,6 +10,7 @@ $chatStatusURL = "chat-status.json";
 
 if (isset($_POST["message"])) {
   $username = $_POST["username"];
+  $color = $_POST["color"];
   $date = $_POST["date"];
   $message = $_POST["message"];
 
@@ -17,24 +18,25 @@ if (isset($_POST["message"])) {
     $db = json_decode(file_get_contents($dbURL), true);
 
     $chat_array = [
-        "username" => $username,
-        "message" => htmlspecialchars($message),
-        "date" => $date,
-        "timestamp" => date("h:i")
-      ];
-    
-    
+      "username" => $username,
+      "color" => $color,
+      "message" => htmlspecialchars($message),
+      "date" => $date,
+      "timestamp" => date("h:i")
+    ];
+
+
     $db["chat"][] = $chat_array;
     file_put_contents($dbURL, json_encode($db, JSON_PRETTY_PRINT));
 
-    
+
     // chat status
     $chatStatus = json_decode(file_get_contents($chatStatusURL));
-    
+
     $chatStatus = [
       "update_status" => $chatStatus->update_status + 1
     ];
-    
+
     file_put_contents($chatStatusURL, json_encode($chatStatus, JSON_PRETTY_PRINT));
   }
 }
@@ -52,14 +54,14 @@ if (isset($_POST["update"])) {
   $db = json_decode(file_get_contents($dbURL));
 
   if ($db != null) {
-    
+
     foreach ($db->chat as $chat) {
 
       $username = $chat->username;
       $message = nl2br($chat->message);
       $date = $chat->date;
       $timestamp = $chat->timestamp;
-      
+
       echo '<div class="chat">
               <div class="chat-box">
                 <div class="chat-header">
