@@ -315,7 +315,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           "#c200ff"
         ];
 
-        usernameColor = rand(colorArray);
+        usernameColor = randArray(colorArray);
       });
 
       // melakukan HttpRequest
@@ -429,7 +429,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       * fungsi acal array
       * =================
       */
-      function rand(arr) {
+      function randArray(arr) {
         // membuat index acak
         const indexAcak = Math.floor(Math.random() * arr.length);
 
