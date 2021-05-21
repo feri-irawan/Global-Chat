@@ -27,7 +27,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   <title>SayHaii - Global chat sederhana</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
- 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
@@ -50,7 +50,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       left: 0;
       right: 0;
     }
-/*     
+    /*
 @media (min-width: 700px) {
   #chat-form-container {
     left: calc(10% + .7rem);
@@ -117,12 +117,12 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       justify-content: center;
       align-items: center;
     }
-    
+
     .loading-spin {
-      animation: spinner 1s infinite;
+      animation: spinner1s infinite;
       animation-timing-function: linear;
     }
-    @keyframes spinner {
+@keyframes spinner {
       from {
         transform: rotate(0deg);
       }
@@ -140,10 +140,10 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">SayHaii</a>
- 
+
       <?php if ($loginStatus == true): ?>
       <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <?=$_COOKIE["username"]?>
+        <?=$_COOKIE["username"] ?>
       </button>
       <div class="collapse navbar-collapse" id="navbarDropdown">
         <div class="navbar-nav">
@@ -152,7 +152,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         </div>
       </div>
       <?php endif; ?>
-      
+
     </div>
   </nav>
 
@@ -209,16 +209,16 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
       let chat = $("#chat-input").val();
       console.log(chat)
-      
+
       let btnSend = $("#btn-send");
-   
+
       btnSend.html(`
-      <svg xmlns="http://www.w3.org/2000/svg" class="loading-spin" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" class="loading-spin" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
         <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
-      </svg>
-      `);
-      
+        </svg>
+        `);
+
       sendChat(chat);
 
       e.preventDefault();
@@ -226,15 +226,15 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
     function sendChat(chat) {
       getChat();
-      
+
       let username = Cookies.get("username");
       let date = new Date();
       let day = date.getDay();
       let month = date.getMonth();
       let year = date.getFullYear();
-          date = day +"/"+ month +"/"+ year;
+      date = day +"/"+ month +"/"+ year;
       let message = chat;
-      
+
       $.ajax({
         url: "proses.php",
         type: "post",
@@ -260,7 +260,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         data: "update",
         success: function (res) {
           $("#chat-container").html(res);
-       
+
           let btnSend = $("#btn-send");
           btnSend.html("Send")
         }
@@ -282,19 +282,16 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         error: function (x, s, e) {
           console.log(x)
           return 0;
-        } 
+        }
       })
     }
 
     // auto Update chat
     $("body").on("load", function () {
       setInterval(function () {
-          getChat();
+        getChat();
       }, 1000)
     })
-
-
-
 
 
     // Form chat height
@@ -338,8 +335,8 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         }
       });
 
-    // btn to new chat
-    $("#btn-to-newchat").click(function () {
+      // btn to new chat
+      $("#btn-to-newchat").click(function () {
         $("#chat").animate({
           scrollTop: $('#chat').get(0).scrollHeight
         }, 1000);
