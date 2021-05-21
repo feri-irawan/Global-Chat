@@ -201,7 +201,6 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   </section>
 
   <script>
-
     // membuat nila berbeda agar halaman melakuan request data pertamakali
     var statusOld = 0; statusNew = 1;
 
@@ -224,6 +223,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         // jika status chat yang lama SUDAH SAMA dengan yang baru maka stop request chat.
 
         /**
+        * Console:
         * konsol("Stop request: " + statusOld)
         */
 
@@ -232,6 +232,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         // jika status chat yang lama TIDAK SAMA dengan yang baru maka lakukan request chat.
 
         /**
+        * Console:
         * konsol("Melakukan request: " + statusNew)
         */
 
@@ -241,7 +242,12 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
     }, 1000)
 
-    // mengambil data statusChat
+
+    /**
+    * =================
+    * mengambil data statusChat
+    * =================
+    */
     function statusChat() {
       const path = "https://sayhaii.herokuapp.com/chat-status.json";
       var xhr = $.ajax({
@@ -251,13 +257,14 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       return xhr.responseJSON.update_status
     }
 
+
     // fungsi console biasa agar lebih praktis
     function konsol(val) {
       return console.log(val)
     }
 
 
-
+    // ketika #chat-form di submit
     $("#chat-form").submit(function (e) {
 
       // memasukan value #chat-input kedalam variable
@@ -322,6 +329,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       })
     }
 
+
     /**
     * =================
     * fungsi untuk mengambil data chat dan memperbaruhi isi #chat-container
@@ -342,11 +350,11 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         }
       })
 
+      // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
       $(".chat-box").click(function() {
         $(this).find(".chat-date").css("display", "inline-block")
       })
     }
-
 
 
     // mengatur tinggi form chat
