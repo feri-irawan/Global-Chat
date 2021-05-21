@@ -285,7 +285,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         `);
 
       // melakukan pengisiman message
-      sendChat(chat);
+      //sendChat(chat);
 
       // jika form di submit halaman tidak melakukan refresh
       e.preventDefault();
