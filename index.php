@@ -222,12 +222,20 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
       if (statusOld == statusNew) {
         // jika status chat yang lama SUDAH SAMA dengan yang baru maka stop request chat.
-        konsol("Stop request: " + statusOld)
+
+        /**
+        * konsol("Stop request: " + statusOld)
+        */
 
       } else {
 
         // jika status chat yang lama TIDAK SAMA dengan yang baru maka lakukan request chat.
-        konsol("Melakukan request: " + statusNew)
+
+        /**
+        * konsol("Melakukan request: " + statusNew)
+        */
+
+        // update chat karna statusOld tidak sama dengan statusNew
         getChat()
       }
 
@@ -250,10 +258,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
 
     $("#chat-form").submit(function (e) {
-
       let chat = $("#chat-input").val();
-      console.log(chat)
-
       let btnSend = $("#btn-send");
 
       btnSend.html(`
