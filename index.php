@@ -1,18 +1,4 @@
 <?php
-$actual_link = "$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-echo $actual_link;
-
-$kondisi_satu = $actual_link == "view-source:http://$actual_link";
-$kondisi_dua = $actual_link == "view-source:https://$actual_link";
-$kondisi_tiga = $actual_link == "view-source:$actual_link";
-
-if ($kondisi_satu || $kondisi_dua || $kondisi_tiga) {
-  echo "ada view-source bro";
-} else {
-  echo "aman";
-}
-
-
 session_start();
 
 if (isset($_POST["username"])) {
