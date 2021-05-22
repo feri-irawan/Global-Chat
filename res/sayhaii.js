@@ -150,6 +150,7 @@ $(document).ready(() => {
 * ==================
 */
 function getChat() {
+  var container = $("#chat-container");
   container.html("Loading...");
 
   $.ajax({
@@ -161,7 +162,6 @@ function getChat() {
 
       var btnSend = $("#btn-send");
       btnSend.html("Send");
-      var container = $("#chat-container");
 
       setTimeout(
         function() {
