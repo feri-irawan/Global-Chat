@@ -246,7 +246,6 @@ $("#chat-input").on("keyup", function () {
   }
 
 
-
   /**
   * =================
   * fungsi acal array
