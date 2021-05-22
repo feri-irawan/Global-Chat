@@ -69,7 +69,7 @@ if (isset($_POST["update"])) {
       echo '
       <div class="chat-box-container chat-box-id-'.$id.'">
             <div class="chat">
-              <div class="chat-box sayhaii-'.$id.'">
+              <div class="chat-box chat-box-left sayhaii-'.$id.'">
                 <div class="chat-header">
                   <div class="chat-username fw-bold" style="color: '.$color.'">'.$username.'</div>
                   <div class="chat-time">
