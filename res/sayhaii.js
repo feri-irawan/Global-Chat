@@ -100,7 +100,7 @@ var usernameColor = randArray(colorArray);
 function sendChat(chat) {
 
   // jika fungsi sendChat() digunakan maka lakukan "update" chat sekali
-  getChat();
+  //getChat();
 
   // memasuka data ke dalam variable
   var id = Cookies.get("sayhaii_id");
