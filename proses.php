@@ -99,7 +99,7 @@ if (isset($_POST["update"])) {
       ]
     ];
 
-    echo $db;
+    echo json_encode($db);
 
 
     /* echo '
