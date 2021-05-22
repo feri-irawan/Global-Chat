@@ -176,9 +176,15 @@ function getChat() {
         var i,
         lastChat;
 
+        if (res.items.chat.length > 1) {
+          lastChat = 1;
+        } else {
+          lastChat = 0
+        }
+
         container.html("")
 
-        for (i = 0; i < (res.items.chat.length - 1); i++) {
+        for (i = 0; i < (res.items.chat.length - lastChat); i++) {
 
           chat = res.items.chat[i];
           container.append(`
