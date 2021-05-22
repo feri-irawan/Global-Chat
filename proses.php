@@ -58,7 +58,7 @@ if (isset($_POST["update"])) {
 
   if ($db != null) {
     $db = [
-      "status_code" => 200,
+      "status_code" => 0,
       "status" => "success",
       "message" => "berhasil meangambil data chat",
       "items" => $db
@@ -96,7 +96,7 @@ if (isset($_POST["update"])) {
   } else {
 
     $db = [
-      "status_code" => 404,
+      "status_code" => 1,
       "status" => "success",
       "message" => "chat masih kosong",
       "items" => [
