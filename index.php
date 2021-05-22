@@ -25,13 +25,13 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 <html lang="en" translate="no">
 <head>
   <!--
-               * =============================
-               * Do not copy without permission
-               * Made by Feri Irawan, Indonesia
-               * Copyright 2021
-               * All rights reserved
-               * =============================
-              -->
+                 * =============================
+                 * Do not copy without permission
+                 * Made by Feri Irawan, Indonesia
+                 * Copyright 2021
+                 * All rights reserved
+                 * =============================
+                -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -118,7 +118,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
         </div>
         <div class="ps-3 d-flex align-items-bottom">
           <button type="submit" id="btn-send" class="btn btn-primary">Send</button>
-          <button onclick="getChat()" class="btn btn-success">Get</button>
+          <button type="button" onclick="getChat()" class="btn btn-success">Get</button>
         </div>
       </form>
     </main>
