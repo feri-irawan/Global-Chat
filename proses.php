@@ -106,7 +106,10 @@ if (isset($_POST["update"])) {
             "username" => "SayHaii [bot]",
             "color" => "var(--bs-primary)",
             "date" => date("d/m/Y"),
-            "timestamp" => date("H.i")
+            "timestamp" => date("H.i"),
+            "message" => '<strong>Hello '.$_COOKIE["username"].', </strong><br>
+                  Until now, no messages have been sent.  <br>
+                  Be the first!'
           ]
         ]
       ]
