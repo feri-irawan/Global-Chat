@@ -159,6 +159,8 @@ function getChat() {
       var btnSend = $("#btn-send");
       btnSend.html("Send");
 
+      scrollToBottom()
+
       // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
       $(".chat-box").click(function() {
         $(this).find(".chat-date").css("display", "inline-block");
@@ -166,7 +168,6 @@ function getChat() {
 
     }
   });
-
 }
 
 
@@ -212,12 +213,17 @@ $("#chat-input").on("keyup", function () {
     }
   });
 
-  // tombol ke chat paling bawah
+  // scroll ke chat paling bawah
   $("#btn-to-newchat").click(function () {
+    scrollToBottom();
+  });
+
+  function scrollToBottom() {
     $("#chat-container").animate({
       scrollTop: $('#chat-container').get(0).scrollHeight
-    }, 1000);
-  });
+    },
+      1000);
+  }
 
 
 
