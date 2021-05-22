@@ -162,9 +162,11 @@ function getChat() {
   });
 
   // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
-  $(".chat-box").click(function() {
-    $(this).find(".chat-date").css("display", "inline-block");
-  });
+  function scrollBottom() {
+    $(".chat-box").click(function() {
+      $(this).find(".chat-date").css("display", "inline-block");
+    });
+  }
 }
 
 
