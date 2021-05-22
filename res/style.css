@@ -3,6 +3,8 @@
   height: calc(100vh - 7.5rem);
 }
 #chat-container {
+  display: flex;
+  align-items: flex-end;
   overflow-y: scroll;
   height: 90%;
   width: 100%;
