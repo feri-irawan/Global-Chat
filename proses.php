@@ -107,9 +107,12 @@ if (isset($_POST["update"])) {
             "color" => "var(--bs-primary)",
             "date" => date("d/m/Y"),
             "timestamp" => date("H.i"),
-            "message" => '<strong>Hello '.$_COOKIE["username"].', </strong><br>
+            "message" => '<p>
+                  <br>
+                  <strong>Hello '.$_COOKIE["username"].', </strong><br>
                   Until now, no messages have been sent.  <br>
-                  Be the first!'
+                  Be the first!
+                </p>'
           ]
         ]
       ]
