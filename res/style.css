@@ -4,7 +4,6 @@
 }
 #chat-container {
   display: flex;
-  justify-self: end;
   overflow-y: scroll;
   height: 90%;
   width: 100%;
@@ -30,6 +29,7 @@
 
 /* Chat box */
 .chat {
+  justify-self: end;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
   filter: drop-shadow(0px 2px 3px #00000020);
