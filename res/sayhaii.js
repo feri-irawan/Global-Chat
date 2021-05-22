@@ -150,16 +150,18 @@ $(document).ready(() => {
 * ==================
 */
 function getChat() {
+  container.html("Loading...");
+
   $.ajax({
     url: "https://sayhaii.herokuapp.com/proses.php",
     type: "post",
     data: "update",
     success: function (res) {
+      konsol(res)
 
       var btnSend = $("#btn-send");
       btnSend.html("Send");
-
-      konsol(res)
+      var container = $("#chat-container");
 
       setTimeout(
         function() {
@@ -171,7 +173,6 @@ function getChat() {
       if (res.items.chat.length != Cookies.get("chat")) {
 
         konsol("Belum sama")
-        var container = $("#chat-container");
         var chat = res.items.chat[0];
         var i;
 
@@ -221,6 +222,7 @@ function getChat() {
 
       } else {
         konsol("sudah sama")
+        container.html("Oops. something error..")
       }
 
 
