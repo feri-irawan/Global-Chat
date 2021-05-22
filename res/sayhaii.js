@@ -1,19 +1,19 @@
 // membuat nila berbeda agar halaman melakuan request data pertamakali
 var statusOld = 0; statusNew = statusChat();
 
-// cek status lama, melakukan interval lebih lambat 3 detik dari statusNew
+// cek status lama, melakukan interval lebih lambat dari statusNew
 // untuk membuat nilai statusOld berbeda dengan statusNew)
 var cekStatusLama = setInterval(() => {
   statusOld = statusChat();
-}, 3000);
+}, 1000);
 
-// cek status baru, melakukan interval lebih cepat 3 detik dari statusOld
+// cek status baru, melakukan interval lebih cepat dari statusOld
 // untuk membuat nilai statusNew berbeda dengan statusOld)
 var cekStatusBaru = setInterval(() => {
   statusNew = statusChat();
-}, 1000);
+}, 500);
 
-// cek kesamaan statusOld dengan statusNew setiap 0.5 detik
+// cek kesamaan statusOld dengan statusNew setiap 0.2 detik
 setInterval(() => {
 
   if (statusOld == statusNew) {
@@ -37,7 +37,7 @@ setInterval(() => {
     getChat();
   }
 
-}, 500);
+}, 200);
 
 
 /**
