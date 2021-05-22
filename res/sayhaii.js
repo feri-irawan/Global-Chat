@@ -154,7 +154,7 @@ function getChat() {
       $("#chat-container").html(res);
 
       $(".sayhaii-"+ Cookies.get("sayhaii_id")).addClass("chat-box-right");
-      $(".chat-box-id" + Cookies.get("sayhaii_id")).css("justify-content", "flex-end");
+      $(".chat-box-id-" + Cookies.get("sayhaii_id")).css("justify-content", "flex-end");
 
       var btnSend = $("#btn-send");
       btnSend.html("Send");
