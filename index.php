@@ -24,6 +24,13 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 <!DOCTYPE html>
 <html lang="en" translate="no">
 <head>
+  <!--
+   * =============================
+   * Do not copy without permission
+   * Copyright 2021 by Feri Irawan, Indonesia
+   * All rights reserved
+   * =============================
+  -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
