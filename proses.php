@@ -9,6 +9,8 @@ $chatStatusURL = "chat-status.json";
 
 
 if (isset($_POST["message"])) {
+
+  $id = $_POST["id"];
   $username = $_POST["username"];
   $color = $_POST["color"];
   $date = $_POST["date"];
@@ -18,6 +20,7 @@ if (isset($_POST["message"])) {
     $db = json_decode(file_get_contents($dbURL), true);
 
     $chat_array = [
+      "id" => $id,
       "username" => $username,
       "color" => $color,
       "message" => htmlspecialchars($message),
