@@ -140,10 +140,12 @@ function getChat() {
             `)
         }
 
+        // mengambil chat dengan index terakhir
         for (i = 0; i < res.items.chat.length; i++) {
           chat = res.items.chat[i];
         }
 
+        // kemudian menambahkan isi #chat-container diakhir
         $("#chat-container").append(`
           <div class="chat-box-container chat-box-id-`+chat.id+`">
           <div class="chat">
