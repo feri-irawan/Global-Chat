@@ -103,6 +103,7 @@ function sendChat(chat) {
   getChat();
 
   // memasuka data ke dalam variable
+  var id = Cookies.get("sayhaii_id");
   var username = Cookies.get("username");
   var date = new Date();
   var day = date.getDay();
@@ -116,6 +117,7 @@ function sendChat(chat) {
     url: "proses.php",
     type: "post",
     data: {
+      "id": id,
       "username": username,
       "color": usernameColor,
       "date": "1/5/2020",
