@@ -66,7 +66,7 @@ if (isset($_POST["update"])) {
       $date = $chat->date;
       $timestamp = $chat->timestamp;
 
-      echo '<div class="chat">
+      echo '<div class="chat box-'.$id.'">
               <div class="chat-box sayhaii-'.$id.'">
                 <div class="chat-header">
                   <div class="chat-username fw-bold" style="color: '.$color.'">'.$username.'</div>
