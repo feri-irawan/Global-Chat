@@ -40,7 +40,7 @@
 .chat-box {
   background: #fff;
   color: #444444;
-  border-radius: 0 5px 5px 5px;
+  border-radius: 5px;
   font-size: 0.8rem;
   max-width: max-content;
   display: block;
