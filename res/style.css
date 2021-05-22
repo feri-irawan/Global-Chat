@@ -3,7 +3,6 @@
   height: calc(100vh - 7.5rem);
 }
 #chat-container {
-  display: grid;
   overflow-y: scroll;
   height: 90%;
   width: 100%;
