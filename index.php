@@ -27,15 +27,14 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   <title>SayHaii - Global chat sederhana</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
+  <?php if ($loginStatus == true): ?>
+  <link rel="stylesheet" href="res/style.css" type="text/css" media="all" />
+  <?php endif; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 
-  <?php if ($loginStatus == true): ?>
-  <link rel="stylesheet" href="res/style.css" type="text/css" media="all" />
-  <?php endif;
-  ?>
 </head>
 
 <body>
