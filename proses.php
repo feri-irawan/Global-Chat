@@ -91,11 +91,13 @@ if (isset($_POST["update"])) {
       "status" => "error",
       "message" => "chat masih kosong",
       "chat" => [
-        "id" => null,
-        "username" => "SayHaii [bot]",
-        "color" => "var(--bs-primary)",
-        "date" => date("d/m/Y"),
-        "timestamp" => date("H.i")
+        0 => [
+          "id" => null,
+          "username" => "SayHaii [bot]",
+          "color" => "var(--bs-primary)",
+          "date" => date("d/m/Y"),
+          "timestamp" => date("H.i")
+        ]
       ]
     ];
 
