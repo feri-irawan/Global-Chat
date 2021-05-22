@@ -99,6 +99,7 @@ if (isset($_POST["update"])) {
       ]
     ];
 
+    header("Content-Type: application/json");
     echo json_encode($db);
 
 
