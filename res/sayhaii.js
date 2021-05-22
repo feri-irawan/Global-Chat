@@ -5,15 +5,15 @@ var statusOld = 0; statusNew = 1;
 // untuk membuat nilai statusOld berbeda dengan statusNew)
 var cekStatusLama = setInterval(() => {
   statusOld = statusChat();
-}, 5000);
+}, 3000);
 
 // cek status baru, melakukan interval lebih cepat 3 detik dari statusOld
 // untuk membuat nilai statusNew berbeda dengan statusOld)
 var cekStatusBaru = setInterval(() => {
   statusNew = statusChat();
-}, 2000);
+}, 1000);
 
-// cek kesamaan statusOld dengan statusNew setiap 1 detik
+// cek kesamaan statusOld dengan statusNew setiap 0.5 detik
 setInterval(() => {
 
   if (statusOld == statusNew) {
@@ -37,7 +37,7 @@ setInterval(() => {
     getChat();
   }
 
-}, 1000);
+}, 500);
 
 
 /**
