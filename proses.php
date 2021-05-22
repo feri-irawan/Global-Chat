@@ -83,10 +83,26 @@ if (isset($_POST["update"])) {
       </div>
             ';
     } */
-    echo $db;
 
   } else {
-    echo '
+
+    $db = [
+      "status_code" => 500,
+      "status" => "error",
+      "message" => "chat masih kosong",
+      "chat" => [
+        "id" => null,
+        "username" => "SayHaii [bot]",
+        "color" => "var(--bs-primary)",
+        "date" => date("d/m/Y"),
+        "timestamp" => date("H.i")
+      ]
+    ];
+
+    echo $db;
+
+
+    /* echo '
         <div class="chat-box-container">
           <div class="chat">
             <div class="chat-box chat-box-left">
@@ -108,7 +124,8 @@ if (isset($_POST["update"])) {
             </div>
           </div>
         </div>
-          ';
+          '; */
+
   }
 }
 
