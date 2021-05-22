@@ -137,9 +137,11 @@ function sendChat(chat) {
   });
 }
 
-setInterval(function() {
-  getChat()
-}, 1000)
+$(document).ready(() => {
+  setInterval(function() {
+    getChat()
+  }, 1000)
+})
 
 
 /**
