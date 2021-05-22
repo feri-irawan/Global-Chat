@@ -34,7 +34,7 @@ setInterval(() => {
     */
 
     // update chat karna statusOld tidak sama dengan statusNew
-    getChat();
+    //getChat();
   }
 
 }, 200);
@@ -150,6 +150,71 @@ function getChat() {
     data: "update",
     success: function (res) {
 
+      konsol(res)
+
+      setTimeout(
+        function() {
+          Cookies.set("chat", res.items.chat.length, {
+            expires: 7, path: ''
+          });
+        }, 10);
+
+      if (res.items.chat.length != Cookies.get("chat")) {
+
+        konsol("Belum sama")
+        var container = $("#chat-container");
+        var chat = res.items.chat[0];
+
+        container.html("")
+
+        for (var i = 0; i < (res.items.chat.length - 1); i++) {
+
+          chat = res.items.chat[i];
+          container.append(`
+            <div class="chat-box-container chat-box-id-`+chat.id+`">
+            <div class="chat">
+            <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
+            <div class="chat-header">
+            <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
+            <div class="chat-time">
+            <span class="chat-date">`+chat.date+`</span>
+            <span class="chat-timestamp">`+chat.timestamp+`</span>
+            </div>
+            </div>
+            <div class="chat-body">`+chat.message+`</div>
+            </div>
+            </div>
+            </div>
+            `)
+        }
+
+        for (var i = 0; i < res.items.chat.length; i++) {
+          chat = res.items.chat[i];
+        }
+
+        $("#chat-container").append(`
+          <div class="chat-box-container chat-box-id-`+chat.id+`">
+          <div class="chat">
+          <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
+          <div class="chat-header">
+          <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
+          <div class="chat-time">
+          <span class="chat-date">`+chat.date+`</span>
+          <span class="chat-timestamp">`+chat.timestamp+`</span>
+          </div>
+          </div>
+          <div class="chat-body">`+chat.message+`</div>
+          </div>
+          </div>
+          </div>
+          `)
+
+      } else {
+        konsol("sudah sama")
+      }
+
+
+      /*
       // jika berhasil mengambil data maka update isi #chat-container
       $("#chat-container").html(res);
 
@@ -161,11 +226,11 @@ function getChat() {
       btnSend.html("Send");
 
       scrollToBottom()
-
       // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
       $(".chat-box").click(function() {
         $(this).find(".chat-date").css("display", "inline-block");
       });
+      */
 
     }
   });
