@@ -164,10 +164,11 @@ function getChat() {
         konsol("Belum sama")
         var container = $("#chat-container");
         var chat = res.items.chat[0];
+        var i;
 
         container.html("")
 
-        for (var i = 0; i < (res.items.chat.length - 1); i++) {
+        for (i = 0; i < (res.items.chat.length - 1); i++) {
 
           chat = res.items.chat[i];
           container.append(`
@@ -188,7 +189,7 @@ function getChat() {
             `)
         }
 
-        for (var i = 0; i < res.items.chat.length; i++) {
+        for (i = 0; i < res.items.chat.length; i++) {
           chat = res.items.chat[i];
         }
 
