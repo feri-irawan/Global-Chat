@@ -31,7 +31,7 @@
 .chat {
   position: absolute;
   right: 0;
-  margin-left: 0.5rem;
+  margin: 0 0.5rem;
   margin-bottom: 1rem;
   filter: drop-shadow(0px 2px 3px #00000020);
 }
@@ -45,7 +45,7 @@
   position: relative;
   word-wrap: break-word;
 }
-.chat-box::before {
+.chat-box-left::before {
   content: "";
   position: absolute;
   top: 0px;
@@ -53,6 +53,17 @@
   border: 0.5rem solid #fff;
   border-bottom-color: transparent;
   border-left-color: transparent;
+  z-index: -1;
+}
+
+.chat-box-right::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: -0.7rem;
+  border: 0.5rem solid #fff;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
   z-index: -1;
 }
 .chat-box .chat-header {
