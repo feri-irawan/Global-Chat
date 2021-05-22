@@ -96,8 +96,8 @@ if (isset($_POST["update"])) {
   } else {
 
     $db = [
-      "status_code" => 500,
-      "status" => "error",
+      "status_code" => 404,
+      "status" => "success",
       "message" => "chat masih kosong",
       "items" => [
         "chat" => [
