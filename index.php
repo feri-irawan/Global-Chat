@@ -203,7 +203,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
       </div>
       <form id="chat-form" class="d-flex p-3">
         <div class="w-100">
-          <textarea name="chat" id="chat-input" rows="1" class="form-control" required></textarea>
+          <textarea name="chat" id="chat-input" rows="1" class="form-control" placeholder="Type a message" required></textarea>
         </div>
         <div class="ps-3 d-flex align-items-bottom">
           <button type="submit" id="btn-send" class="btn btn-primary">Send</button>
