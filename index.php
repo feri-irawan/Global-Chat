@@ -4,12 +4,15 @@ session_start();
 if (isset($_POST["username"])) {
   $_SESSION["username"] = $_POST["username"];
   setcookie("username", $_POST["username"], time() + (7 * 24 * 60 * 60));
+  setcookie("sayhaii_id", uniqid(""), time() + (7 * 24 * 60 * 60));
+
   header("location: index.php");
 }
 
 if (isset($_GET["logout"])) {
   session_destroy();
   setcookie("username", "", time()-3600);
+  setcookie("sayhaii_id", "", time()-3600);
   header("location: index.php");
 }
 
