@@ -114,7 +114,7 @@ function sendChat(chat) {
 
   // melakukan HttpRequest
   $.ajax({
-    url: "https://sayhaii.herokuapp.com/proses.php",
+    url: "https://sayhaii.herokuapp.com/proses",
     type: "post",
     data: {
       "id": id,
@@ -154,7 +154,7 @@ function getChat() {
   container.html("Loading...");
 
   $.ajax({
-    url: "proses.php",
+    url: "https://sayhaii.herokuapp.com/proses",
     type: "post",
     data: "update",
     success: function (res) {
