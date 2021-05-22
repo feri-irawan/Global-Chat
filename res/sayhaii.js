@@ -138,7 +138,7 @@ function sendChat(chat) {
 }
 
 $(document).ready(() => {
-  var chatInterval = qsetInterval(function() {
+  setInterval(function() {
     getChat()
   }, 1000)
 })
@@ -151,7 +151,7 @@ $(document).ready(() => {
 */
 function getChat() {
   var container = $("#chat-container");
-  container.html("Loading...");
+  var btnSend = $("#btn-send");
 
   $.ajax({
     url: "https://sayhaii.herokuapp.com/proses",
@@ -160,7 +160,6 @@ function getChat() {
     success: function (res) {
       konsol(res)
 
-      var btnSend = $("#btn-send");
       btnSend.html("Send");
 
       setTimeout(
@@ -222,9 +221,6 @@ function getChat() {
 
       } else {
         konsol("sudah sama")
-        container.html("Oops. something error..")
-
-        clearInterval(chatInterval)
       }
 
 
