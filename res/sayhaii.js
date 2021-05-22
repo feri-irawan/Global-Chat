@@ -1,5 +1,5 @@
 // membuat nila berbeda agar halaman melakuan request data pertamakali
-var statusOld = 0; statusNew = 1;
+var statusOld = 0; statusNew = statusChat();
 
 // cek status lama, melakukan interval lebih lambat 3 detik dari statusNew
 // untuk membuat nilai statusOld berbeda dengan statusNew)
