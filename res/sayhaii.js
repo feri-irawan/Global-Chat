@@ -153,6 +153,8 @@ function getChat() {
       // jika berhasil mengambil data maka update isi #chat-container
       $("#chat-container").html(res);
 
+      $("sayhaii-"+ Cookies.get("sayhaii_id")).addClass("chat-box-right");
+
       var btnSend = $("#btn-send");
       btnSend.html("Send");
     }
