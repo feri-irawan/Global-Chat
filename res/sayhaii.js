@@ -158,16 +158,17 @@ function getChat() {
 
       var btnSend = $("#btn-send");
       btnSend.html("Send");
+
+      // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
+      $(".chat-box").click(function() {
+        $(this).find(".chat-date").css("display", "inline-block");
+      });
+
     }
   });
 
-  // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
-  function scrollBottom() {
-    $(".chat-box").click(function() {
-      $(this).find(".chat-date").css("display", "inline-block");
-    });
-  }
 }
+
 
 
 // mengatur tinggi form chat
