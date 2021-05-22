@@ -27,7 +27,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   <!--
      * =============================
      * Do not copy without permission
-     * Made with Love by Feri Irawan, Indonesia
+     * Author: Feri Irawan, Indonesia
      * Copyright 2021
      * All rights reserved
      * =============================
