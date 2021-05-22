@@ -112,8 +112,8 @@ function getChat() {
           });
         }, 10);
 
-      if (res.items.chat.length != Cookies.get("chat")) {
 
+      if (res.items.chat.length != Cookies.get("chat")) {
         konsol("Belum sama");
         var chat = res.items.chat[0];
         var i;
