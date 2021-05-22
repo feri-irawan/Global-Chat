@@ -101,7 +101,7 @@ function getChat() {
     type: "post",
     data: "update",
     success: function (res) {
-      konsol(res)
+      konsol(res);
 
       btnSend.html("Send");
 
@@ -114,11 +114,11 @@ function getChat() {
 
       if (res.items.chat.length != Cookies.get("chat")) {
 
-        konsol("Belum sama")
+        konsol("Belum sama");
         var chat = res.items.chat[0];
         var i;
 
-        container.html("")
+        container.html("");
 
         for (i = 0; i < (res.items.chat.length - 1); i++) {
           chat = res.items.chat[i];
@@ -137,7 +137,7 @@ function getChat() {
             </div>
             </div>
             </div>
-            `)
+            `);
         }
 
         // mengambil chat dengan index terakhir
@@ -161,10 +161,14 @@ function getChat() {
           </div>
           </div>
           </div>
-          `)
+          `);
 
+        $(".chat-box-id-" + Cookies.get("sayhaii_id")).css("justify-content", "flex-end");
+        $(".sayhaii-"+ Cookies.get("sayhaii_id")).removeClass("chat-box-left").addClass("chat-box-right");
+        $("#chat-audio").get(0).play()
+        scrollToBottom();
       } else {
-        konsol("sudah sama")
+        konsol("sudah sama");
       }
 
 
@@ -172,14 +176,9 @@ function getChat() {
       // jika berhasil mengambil data maka update isi #chat-container
       $("#chat-container").html(res);
 
-      $(".chat-box-id-" + Cookies.get("sayhaii_id")).css("justify-content", "flex-end");
-      $(".sayhaii-"+ Cookies.get("sayhaii_id")).removeClass("chat-box-left").addClass("chat-box-right");
-      $("#chat-audio").get(0).play()
-
       var btnSend = $("#btn-send");
       btnSend.html("Send");
 
-      scrollToBottom()
       // jika salah satu .chat-box di klik maka tampilkan tanggal pengiriman
       $(".chat-box").click(function() {
         $(this).find(".chat-date").css("display", "inline-block");
