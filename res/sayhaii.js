@@ -150,6 +150,9 @@ function getChat() {
     data: "update",
     success: function (res) {
 
+      var btnSend = $("#btn-send");
+      btnSend.html("Send");
+
       konsol(res)
 
       setTimeout(
