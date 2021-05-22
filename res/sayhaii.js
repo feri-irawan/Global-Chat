@@ -157,7 +157,6 @@ function getChat() {
       $(".sayhaii-"+ Cookies.get("sayhaii_id")).removeClass("chat-box-left").addClass("chat-box-right");
       $("#chat-audio").get(0).play()
 
-
       var btnSend = $("#btn-send");
       btnSend.html("Send");
 
