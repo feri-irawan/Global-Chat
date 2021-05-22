@@ -57,6 +57,15 @@ if (isset($_POST["update"])) {
   $db = json_decode(file_get_contents($dbURL));
 
   if ($db != null) {
+    $db = [
+      "status_code" => 200,
+      "status" => "success",
+      "message" => "berhasil meangambil data chat",
+      $db
+    ];
+
+    header("Content-Type: application/json");
+    echo json_encode($db);
 
     /* foreach ($db->chat as $chat) {
       $id = $chat->id;
