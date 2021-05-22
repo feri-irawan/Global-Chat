@@ -4,7 +4,7 @@
 }
 #chat-container {
   display: flex;
-  justify-content: flex-end;
+  justify-self: end;
   overflow-y: scroll;
   height: 90%;
   width: 100%;
