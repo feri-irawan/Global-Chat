@@ -112,3 +112,8 @@
     transform: rotate(360deg);
   }
 }
+#chat-audio {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
