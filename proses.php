@@ -58,7 +58,7 @@ if (isset($_POST["update"])) {
 
   if ($db != null) {
 
-    foreach ($db->chat as $chat) {
+    /* foreach ($db->chat as $chat) {
       $id = $chat->id;
       $username = $chat->username;
       $color = $chat->color;
@@ -82,7 +82,9 @@ if (isset($_POST["update"])) {
             </div>
       </div>
             ';
-    }
+    } */
+    echo $db;
+
   } else {
     echo '
         <div class="chat-box-container">
