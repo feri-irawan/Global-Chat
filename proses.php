@@ -61,7 +61,7 @@ if (isset($_POST["update"])) {
       "status_code" => 200,
       "status" => "success",
       "message" => "berhasil meangambil data chat",
-      $db
+      "items" => $db
     ];
 
     header("Content-Type: application/json");
@@ -99,13 +99,15 @@ if (isset($_POST["update"])) {
       "status_code" => 500,
       "status" => "error",
       "message" => "chat masih kosong",
-      "chat" => [
-        0 => [
-          "id" => null,
-          "username" => "SayHaii [bot]",
-          "color" => "var(--bs-primary)",
-          "date" => date("d/m/Y"),
-          "timestamp" => date("H.i")
+      "items" => [
+        "chat" => [
+          0 => [
+            "id" => null,
+            "username" => "SayHaii [bot]",
+            "color" => "var(--bs-primary)",
+            "date" => date("d/m/Y"),
+            "timestamp" => date("H.i")
+          ]
         ]
       ]
     ];
