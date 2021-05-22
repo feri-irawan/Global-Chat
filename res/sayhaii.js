@@ -1,59 +1,8 @@
-// membuat nila berbeda agar halaman melakuan request data pertamakali
-var statusOld = 0; statusNew = statusChat();
-
-// cek status lama, melakukan interval lebih lambat dari statusNew
-// untuk membuat nilai statusOld berbeda dengan statusNew)
-var cekStatusLama = setInterval(() => {
-  statusOld = statusChat();
-}, 1000);
-
-// cek status baru, melakukan interval lebih cepat dari statusOld
-// untuk membuat nilai statusNew berbeda dengan statusOld)
-var cekStatusBaru = setInterval(() => {
-  statusNew = statusChat();
-}, 500);
-
-// cek kesamaan statusOld dengan statusNew setiap 0.2 detik
-setInterval(() => {
-
-  if (statusOld == statusNew) {
-    // jika status chat yang lama SUDAH SAMA dengan yang baru maka stop request chat.
-
-    /**
-    * Console:
-    * konsol("Stop request: " + statusOld)
-    */
-
-  } else {
-
-    // jika status chat yang lama TIDAK SAMA dengan yang baru maka lakukan request chat.
-
-    /**
-    * Console:
-    * konsol("Melakukan request: " + statusNew)
-    */
-
-    // update chat karna statusOld tidak sama dengan statusNew
-    //getChat();
-  }
-
-}, 200);
-
-
-/**
-* =================
-* mengambil data statusChat
-* =================
-*/
-function statusChat() {
-  const path = "https://sayhaii.herokuapp.com/chat-status.json";
-  var xhr = $.ajax({
-    url: path,
-    async: false
-  });
-  return xhr.responseJSON.update_status;
-}
-
+$(document).ready(function() {
+  setInterval(function() {
+    getChat();
+  }, 1000);
+});
 
 // ketika #chat-form di submit
 $("#chat-form").submit(function (e) {
@@ -137,12 +86,6 @@ function sendChat(chat) {
   });
 }
 
-$(document).ready(() => {
-  setInterval(function() {
-    getChat()
-  }, 1000)
-})
-
 
 /**
 * =================
@@ -178,7 +121,6 @@ function getChat() {
         container.html("")
 
         for (i = 0; i < (res.items.chat.length - 1); i++) {
-
           chat = res.items.chat[i];
           container.append(`
             <div class="chat-box-container chat-box-id-`+chat.id+`">
