@@ -85,7 +85,7 @@ if (isset($_POST["update"])) {
     }
   } else {
     echo '
-        <div class="chat-box-container box-id-'.$id.'">
+        <div class="chat-box-container">
           <div class="chat">
             <div class="chat-box chat-box-left">
               <div class="chat-header">
