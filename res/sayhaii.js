@@ -138,7 +138,7 @@ function sendChat(chat) {
 }
 
 $(document).ready(() => {
-  setInterval(function() {
+  var chatInterval = qsetInterval(function() {
     getChat()
   }, 1000)
 })
@@ -223,6 +223,8 @@ function getChat() {
       } else {
         konsol("sudah sama")
         container.html("Oops. something error..")
+
+        clearInterval(chatInterval)
       }
 
 
