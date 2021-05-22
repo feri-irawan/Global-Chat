@@ -154,7 +154,7 @@ function getChat() {
   container.html("Loading...");
 
   $.ajax({
-    url: "https://sayhaii.herokuapp.com/proses.php",
+    url: "proses.php",
     type: "post",
     data: "update",
     success: function (res) {
