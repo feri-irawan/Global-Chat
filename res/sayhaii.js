@@ -174,7 +174,7 @@ function getChat() {
       }
 
       if (res.items.chat.length == 1) {
-        chat = res.items.chat[0];
+        var chat = res.items.chat[0];
         container.html(`
           <div class="chat-box-container chat-box-id-`+chat.id+`">
           <div class="chat">
