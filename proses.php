@@ -55,32 +55,6 @@ if (isset($_POST["update"])) {
     header("Content-Type: application/json");
     echo json_encode($db);
 
-    /* foreach ($db->chat as $chat) {
-      $id = $chat->id;
-      $username = $chat->username;
-      $color = $chat->color;
-      $message = nl2br($chat->message);
-      $date = $chat->date;
-      $timestamp = $chat->timestamp;
-
-      echo '
-      <div class="chat-box-container chat-box-id-'.$id.'">
-            <div class="chat">
-              <div class="chat-box chat-box-left sayhaii-'.$id.'">
-                <div class="chat-header">
-                  <div class="chat-username fw-bold" style="color: '.$color.'">'.$username.'</div>
-                  <div class="chat-time">
-                    <span class="chat-date">'.$date.'</span>
-                    <span class="chat-timestamp">'.$timestamp.'</span>
-                  </div>
-                </div>
-                <div class="chat-body">'.$message.'</div>
-              </div>
-            </div>
-      </div>
-            ';
-    } */
-
   } else {
 
     $db = [
