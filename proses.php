@@ -15,7 +15,7 @@ if (isset($_POST["message"])) {
   $message = $_POST["message"];
 
   if ($message != null) {
-    $db = json_decode(file_get_contents($chatJSON), true);
+    $chat = json_decode(file_get_contents($chatJSON), true);
 
     $chat_array = [
       "id" => $id,
@@ -27,8 +27,8 @@ if (isset($_POST["message"])) {
     ];
 
 
-    $db["chat"][] = $chat_array;
-    file_put_contents($chatJSON, json_encode($db, JSON_PRETTY_PRINT));
+    $chat["chat"][] = $chat_array;
+    file_put_contents($chatJSON, json_encode($chat, JSON_PRETTY_PRINT));
   }
 }
 
@@ -37,22 +37,22 @@ if (isset($_POST["message"])) {
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
 
-  $db = json_decode(file_get_contents($chatJSON));
-
-  if ($db != null) {
-    $db = [
+  $chat = json_decode(file_get_contents($chatJSON));
+  
+  if ($chat != null) {
+    $chat = [
       "status_code" => 0,
       "status" => "success",
       "message" => "berhasil meangambil data chat",
-      "items" => $db
+      "items" => $chat
     ];
 
     header("Content-Type: application/json");
-    echo json_encode($db);
+    echo json_encode($chat);
 
   } else {
 
-    $db = [
+    $chat = [
       "status_code" => 1,
       "status" => "success",
       "message" => "chat masih kosong",
@@ -76,7 +76,7 @@ if (isset($_POST["update"])) {
     ];
 
     header("Content-Type: application/json");
-    echo json_encode($db);
+    echo json_encode($chat);
 
   }
 }
