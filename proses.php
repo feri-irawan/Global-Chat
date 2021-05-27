@@ -88,7 +88,15 @@ if (isset($_POST["update"])) {
   }
 
   // JIKA UPDATE USER
-  else if ($update == "user") {}
+  else if ($update == "user") {
+    $users = json_decode(file_get_contents($userJSON), true);
+    $users[] = [
+      "username" => $_POST["username"]
+    ];
+
+    $users = json_encode($users, JSON_PRETTY_PRINT);
+    file_put_contents($userJSON, $users);
+  }
 
 }
 
