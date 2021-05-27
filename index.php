@@ -13,6 +13,8 @@ if (isset($_GET["logout"])) {
   session_destroy();
   setcookie("username", "", time()-3600);
   setcookie("sayhaii_id", "", time()-3600);
+  setcookie("chat", "", time()-3600);
+
   header("location: https://".$_SERVER["HTTP_HOST"]);
 }
 
@@ -25,13 +27,13 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 <html lang="en" translate="no">
 <head>
   <!--
-           * =============================
-           * Do not copy without permission
-           * Made by Feri Irawan, Indonesia
-           * Copyright 2021
-           * All rights reserved
-           * =============================
-          -->
+             * =============================
+             * Do not copy without permission
+             * Made by Feri Irawan, Indonesia
+             * Copyright 2021
+             * All rights reserved
+             * =============================
+            -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
