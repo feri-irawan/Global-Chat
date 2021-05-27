@@ -4,7 +4,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 date_default_timezone_set("Asia/Makassar");
 
-$chatJSON = "chat.json";
+// path json
+$chatJSON = "res/json/chat.json";
+$userJSON = "res/json/user.json";
 
 if (isset($_POST["message"])) {
 
@@ -37,48 +39,56 @@ if (isset($_POST["message"])) {
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
 
-  $chat = json_decode(file_get_contents($chatJSON));
-  
-  if ($chat != null) {
-    $chat = [
-      "status_code" => 0,
-      "status" => "success",
-      "message" => "berhasil meangambil data chat",
-      "items" => $chat
-    ];
+  // jika update chat
+  if ($update == "chat") {
 
-    header("Content-Type: application/json");
-    echo json_encode($chat);
+    $chat = json_decode(file_get_contents($chatJSON));
+    if ($chat != null) {
+      $chat = [
+        "status_code" => 0,
+        "status" => "success",
+        "message" => "berhasil meangambil data chat",
+        "items" => $chat
+      ];
 
-  } else {
+      header("Content-Type: application/json");
+      echo json_encode($chat);
 
-    $chat = [
-      "status_code" => 1,
-      "status" => "success",
-      "message" => "chat masih kosong",
-      "items" => [
-        "chat" => [
-          0 => [
-            "id" => null,
-            "username" => "SayHaii [bot]",
-            "color" => "var(--bs-primary)",
-            "date" => date("d/m/Y"),
-            "timestamp" => date("H.i"),
-            "message" => '<p>
+    } else {
+
+      $chat = [
+        "status_code" => 1,
+        "status" => "success",
+        "message" => "chat masih kosong",
+        "items" => [
+          "chat" => [
+            0 => [
+              "id" => null,
+              "username" => "SayHaii [bot]",
+              "color" => "var(--bs-primary)",
+              "date" => date("d/m/Y"),
+              "timestamp" => date("H.i"),
+              "message" => '<p>
                   <br>
                   <strong>Hello '.$_COOKIE["username"].', </strong><br>
                   Until now, no messages have been sent.  <br>
                   Be the first!
                 </p>'
+            ]
           ]
         ]
-      ]
-    ];
+      ];
 
-    header("Content-Type: application/json");
-    echo json_encode($chat);
+      header("Content-Type: application/json");
+      echo json_encode($chat);
+
+    }
 
   }
+
+  // jika update user
+  else if ($update == "user") {}
+
 }
 
 // clear chat
