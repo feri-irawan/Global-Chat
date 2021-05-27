@@ -5,8 +5,6 @@ header('Access-Control-Allow-Methods: GET, POST');
 date_default_timezone_set("Asia/Makassar");
 
 $chatJSON = "chat.json";
-$chatStatusURL = "chat-status.json";
-
 
 if (isset($_POST["message"])) {
 
@@ -31,16 +29,6 @@ if (isset($_POST["message"])) {
 
     $db["chat"][] = $chat_array;
     file_put_contents($chatJSON, json_encode($db, JSON_PRETTY_PRINT));
-
-
-    // chat status
-    $chatStatus = json_decode(file_get_contents($chatStatusURL));
-
-    $chatStatus = [
-      "update_status" => $chatStatus->update_status + 1
-    ];
-
-    file_put_contents($chatStatusURL, json_encode($chatStatus, JSON_PRETTY_PRINT));
   }
 }
 
