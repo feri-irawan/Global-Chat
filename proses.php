@@ -4,10 +4,11 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 date_default_timezone_set("Asia/Makassar");
 
-// path json
+// PATH JSON
 $chatJSON = "res/json/chat.json";
 $userJSON = "res/json/user.json";
 
+// INSERT CHAT
 if (isset($_POST["message"])) {
 
   $id = $_POST["id"];
@@ -39,7 +40,7 @@ if (isset($_POST["message"])) {
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
 
-  // jika update chat
+  // JIKA UPDATE CHAT
   if ($update == "chat") {
 
     $chat = json_decode(file_get_contents($chatJSON));
@@ -86,12 +87,12 @@ if (isset($_POST["update"])) {
 
   }
 
-  // jika update user
+  // JIKA UPDATE USER
   else if ($update == "user") {}
 
 }
 
-// clear chat
+// CLEAR CHAT
 if (isset($_GET["clear-chat"])) {
   file_put_contents($chatJSON, "");
 }
