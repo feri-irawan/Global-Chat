@@ -320,6 +320,8 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
               </div>
               </div>
               `);
+            $(".chat-box-id-" + Cookies.get("sayhaii_id")).css("justify-content", "flex-end");
+            $(".sayhaii-"+ Cookies.get("sayhaii_id")).removeClass("chat-box-left").addClass("chat-box-right");
           }
 
 
