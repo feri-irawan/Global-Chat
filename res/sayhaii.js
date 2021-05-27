@@ -1,4 +1,5 @@
-getChat();
+getChat()
+
 $(document).ready(function() {
   setInterval(function() {
     getChat();
@@ -123,7 +124,7 @@ function getChat() {
 
         for (i = 0; i < (res.items.chat.length - 1); i++) {
           chat = res.items.chat[i];
-          container.html(`
+          container.append(`
             <div class="chat-box-container chat-box-id-`+chat.id+`">
             <div class="chat">
             <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
@@ -147,7 +148,7 @@ function getChat() {
         }
 
         // kemudian menambahkan isi #chat-container diakhir
-        container.html(`
+        container.append(`
           <div class="chat-box-container chat-box-id-`+chat.id+`">
           <div class="chat">
           <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
@@ -172,7 +173,6 @@ function getChat() {
         konsol("sudah sama");
       }
 
-      // ketika jumlah chat hanya ada 1
       if (res.items.chat.length == 1) {
         var chat = res.items.chat[0];
         container.html(`
