@@ -34,11 +34,6 @@ if (isset($_POST["message"])) {
 
 
 
-
-
-
-
-
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
 
