@@ -173,6 +173,7 @@ function getChat() {
         konsol("sudah sama");
       }
 
+      // ketika jumlah chat hanya ada 1
       if (res.items.chat.length == 1) {
         var chat = res.items.chat[0];
         container.html(`
