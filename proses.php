@@ -33,12 +33,7 @@ if (isset($_POST["message"])) {
 }
 
 
-
-
-
-
-
-
+// UPDATE CHAT
 if (isset($_POST["update"])) {
   $update = $_POST["update"];
 
