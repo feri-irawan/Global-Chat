@@ -124,22 +124,22 @@ function getChat() {
 
         for (i = 0; i < (res.items.chat.length - 1); i++) {
           chat = res.items.chat[i];
-          container.append(`
-            <div class="chat-box-container chat-box-id-`+chat.id+`">
+          container.html(`
+          <div class="chat-box-container chat-box-id-`+chat.id+`">
             <div class="chat">
-            <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
-            <div class="chat-header">
-            <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
-            <div class="chat-time">
-            <span class="chat-date">`+chat.date+`</span>
-            <span class="chat-timestamp">`+chat.timestamp+`</span>
+              <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
+                <div class="chat-header">
+                  <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
+                  <div class="chat-time">
+                  <span class="chat-date">`+chat.date+`</span>
+                  <span class="chat-timestamp">`+chat.timestamp+`</span>
+                  </div>
+                </div>
+                <div class="chat-body">`+chat.message+`</div>
+              </div>
             </div>
-            </div>
-            <div class="chat-body">`+chat.message+`</div>
-            </div>
-            </div>
-            </div>
-            `);
+          </div>
+          `);
         }
 
         // mengambil chat dengan index terakhir
@@ -148,20 +148,20 @@ function getChat() {
         }
 
         // kemudian menambahkan isi #chat-container diakhir
-        container.append(`
+        container.html(`
           <div class="chat-box-container chat-box-id-`+chat.id+`">
-          <div class="chat">
-          <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
-          <div class="chat-header">
-          <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
-          <div class="chat-time">
-          <span class="chat-date">`+chat.date+`</span>
-          <span class="chat-timestamp">`+chat.timestamp+`</span>
-          </div>
-          </div>
-          <div class="chat-body">`+chat.message+`</div>
-          </div>
-          </div>
+            <div class="chat">
+              <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
+                <div class="chat-header">
+                  <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
+                  <div class="chat-time">
+                  <span class="chat-date">`+chat.date+`</span>
+                  <span class="chat-timestamp">`+chat.timestamp+`</span>
+                  </div>
+                </div>
+                <div class="chat-body">`+chat.message+`</div>
+              </div>
+            </div>
           </div>
           `);
 
