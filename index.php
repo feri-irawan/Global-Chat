@@ -25,13 +25,13 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 <html lang="en" translate="no">
 <head>
   <!--
-   * =============================
-   * Do not copy without permission
-   * Made by Feri Irawan, Indonesia
-   * Copyright 2021
-   * All rights reserved
-   * =============================
-  -->
+     * =============================
+     * Do not copy without permission
+     * Made by Feri Irawan, Indonesia
+     * Copyright 2021
+     * All rights reserved
+     * =============================
+    -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -41,7 +41,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
   <?php if ($loginStatus == true): ?>
-  <link rel="stylesheet" href="res/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="res/css/style.css" type="text/css" media="all" />
   <?php endif; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -124,7 +124,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   </section>
   <audio id="chat-audio" src="res/popup.mp3?raw=true"></audio>
 
-  <script src="res/sayhaii.js" type="text/javascript" charset="utf-8"></script>
+  <script src="res/js/sayhaii.js" type="text/javascript" charset="utf-8"></script>
   <?php endif; ?>
-  </body>
+</body>
 </html>
