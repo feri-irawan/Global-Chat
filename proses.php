@@ -4,11 +4,8 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 date_default_timezone_set("Asia/Makassar");
 
-// PATH JSON
-$chatJSON = "res/json/chat.json";
-$userJSON = "res/json/user.json";
+$chatJSON = "chat.json";
 
-// INSERT CHAT
 if (isset($_POST["message"])) {
 
   $id = $_POST["id"];
@@ -35,88 +32,54 @@ if (isset($_POST["message"])) {
   }
 }
 
-if (isset($_POST["online-users"])) {
-  $users = json_decode(file_get_contents($userJSON), true);
-  $users[] = [
-    "username" => $_POST["online-users"]
-  ];
-
-  $users = json_encode($users, JSON_PRETTY_PRINT);
-  file_put_contents($userJSON, $users);
-}
 
 // UPDATE CHAT
 if (isset($_POST["update"])) {
-  $update = $_POST["update"];
+  $chat = json_decode(file_get_contents($chatJSON));
+  if ($chat != null) {
+    $chat = [
+      "status_code" => 0,
+      "status" => "success",
+      "message" => "berhasil meangambil data chat",
+      "items" => $chat
+    ];
 
-  // JIKA UPDATE CHAT
-  if ($update == "chat") {
+    header("Content-Type: application/json");
+    echo json_encode($chat);
 
-    $chat = json_decode(file_get_contents($chatJSON));
-    if ($chat != null) {
-      $chat = [
-        "status_code" => 0,
-        "status" => "success",
-        "message" => "berhasil meangambil data chat",
-        "items" => $chat
-      ];
+  } else {
 
-      header("Content-Type: application/json");
-      echo json_encode($chat);
-
-    } else {
-
-      $chat = [
-        "status_code" => 1,
-        "status" => "success",
-        "message" => "chat masih kosong",
-        "items" => [
-          "chat" => [
-            0 => [
-              "id" => null,
-              "username" => "SayHaii [bot]",
-              "color" => "var(--bs-primary)",
-              "date" => date("d/m/Y"),
-              "timestamp" => date("H.i"),
-              "message" => '<p>
+    $chat = [
+      "status_code" => 1,
+      "status" => "success",
+      "message" => "chat masih kosong",
+      "items" => [
+        "chat" => [
+          0 => [
+            "id" => null,
+            "username" => "SayHaii [bot]",
+            "color" => "var(--bs-primary)",
+            "date" => date("d/m/Y"),
+            "timestamp" => date("H.i"),
+            "message" => '<p>
                   <br>
                   <strong>Hello '.$_COOKIE["username"].', </strong><br>
                   Until now, no messages have been sent.  <br>
                   Be the first!
                 </p>'
-            ]
           ]
         ]
-      ];
+      ]
+    ];
 
-      header("Content-Type: application/json");
-      echo json_encode($chat);
+    header("Content-Type: application/json");
+    echo json_encode($chat);
 
-    }
-
-  }
-
-  // JIKA UPDATE USER
-  else if ($update == "user") {
-    $users = json_decode(file_get_contents($userJSON), true);
-    if ($users != null) {
-      $users = [
-        "status_code" => 1,
-        "status" => "success",
-        "message" => "Berhasil mengambil data users",
-        "items" => [
-          "users" => $users
-        ]
-      ];
-
-      header("Content-Type: application/json");
-      echo $users;
-    }
   }
 
 }
 
-// CLEAR CHAT
+// clear chat
 if (isset($_GET["clear-chat"])) {
   file_put_contents($chatJSON, "");
 }
