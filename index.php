@@ -304,7 +304,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
           
           if (res.items.chat.length == 1) {
             var chat = res.items.chat[0];
-            container.append(`
+            container.html(`
               <div class="chat-box-container chat-box-id-`+chat.id+`">
               <div class="chat">
               <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
