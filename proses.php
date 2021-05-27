@@ -35,6 +35,7 @@ if (isset($_POST["message"])) {
 
 // UPDATE CHAT
 if (isset($_POST["update"])) {
+
   $chat = json_decode(file_get_contents($chatJSON));
   if ($chat != null) {
     $chat = [
