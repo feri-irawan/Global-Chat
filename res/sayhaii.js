@@ -177,18 +177,18 @@ function getChat() {
         var chat = res.items.chat[0];
         container.html(`
           <div class="chat-box-container chat-box-id-`+chat.id+`">
-          <div class="chat">
-          <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
-          <div class="chat-header">
-          <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
-          <div class="chat-time">
-          <span class="chat-date">`+chat.date+`</span>
-          <span class="chat-timestamp">`+chat.timestamp+`</span>
-          </div>
-          </div>
-          <div class="chat-body">`+chat.message+`</div>
-          </div>
-          </div>
+            <div class="chat">
+              <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
+                <div class="chat-header">
+                  <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
+                  <div class="chat-time">
+                  <span class="chat-date">`+chat.date+`</span>
+                  <span class="chat-timestamp">`+chat.timestamp+`</span>
+                  </div>
+                </div>
+                <div class="chat-body">`+chat.message+`</div>
+              </div>
+            </div>
           </div>
           `);
         $(".chat-box-id-" + Cookies.get("sayhaii_id")).css("justify-content", "flex-end");
