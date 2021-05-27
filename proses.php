@@ -83,31 +83,6 @@ if (isset($_POST["update"])) {
     header("Content-Type: application/json");
     echo json_encode($db);
 
-
-    /* echo '
-        <div class="chat-box-container">
-          <div class="chat">
-            <div class="chat-box chat-box-left">
-              <div class="chat-header">
-                <div class="chat-username fw-bold" style="color: var(--bs-primary)">SayHaii [bot]</div>
-                <div class="chat-time">
-                  <span class="chat-date">'.date("d/m/Y").'</span>
-                  <span class="chat-timestamp">'.date("H.i").'</span>
-                </div>
-              </div>
-              <div class="chat-body">
-                <p>
-                  <br>
-                  <strong>Hello '.$_COOKIE["username"].', </strong><br>
-                  Until now, no messages have been sent.  <br>
-                  Be the first!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-          '; */
-
   }
 }
 
