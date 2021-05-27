@@ -82,5 +82,5 @@ if (isset($_POST["update"])) {
 }
 
 if (isset($_GET["clear-chat"])) {
-  file_put_contents($chatJSON, "");
+  file_put_contents($dbURL, "");
 }
