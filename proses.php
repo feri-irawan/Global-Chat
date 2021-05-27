@@ -4,7 +4,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 date_default_timezone_set("Asia/Makassar");
 
-$chatJSON = "chat.json";
+$chatJSON = "res/json/chat.json";
 
 if (isset($_POST["message"])) {
 
