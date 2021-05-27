@@ -35,6 +35,15 @@ if (isset($_POST["message"])) {
   }
 }
 
+if (isset($_POST["online-users"])) {
+  $users = json_decode(file_get_contents($userJSON), true);
+  $users[] = [
+    "username" => $_POST["online-users"]
+  ];
+
+  $users = json_encode($users, JSON_PRETTY_PRINT);
+  file_put_contents($userJSON, $users);
+}
 
 // UPDATE CHAT
 if (isset($_POST["update"])) {
