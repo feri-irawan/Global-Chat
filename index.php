@@ -125,6 +125,6 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
   <audio id="chat-audio" src="res/popup.mp3?raw=true"></audio>
 
   <script src="res/sayhaii.js" type="text/javascript" charset="utf-8"></script>
-    <?php endif; ?>
+  <?php endif; ?>
   </body>
 </html>
