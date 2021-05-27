@@ -1,3 +1,4 @@
+getChat();
 $(document).ready(function() {
   setInterval(function() {
     getChat();
