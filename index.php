@@ -277,7 +277,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
             }
 
             // kemudian menambahkan isi #chat-container diakhir
-            $("#chat-container").append(`
+            container.append(`
               <div class="chat-box-container chat-box-id-`+chat.id+`">
               <div class="chat">
               <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
@@ -300,6 +300,26 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
             scrollToBottom();
           } else {
             konsol("sudah sama");
+          }
+          
+          if (res.items.chat.length == 1) {
+            var chat = res.items.chat[1];
+            container.append(`
+              <div class="chat-box-container chat-box-id-`+chat.id+`">
+              <div class="chat">
+              <div class="chat-box chat-box-left sayhaii-`+chat.id+`">
+              <div class="chat-header">
+              <div class="chat-username fw-bold" style="color: `+chat.color+`">`+chat.username+`</div>
+              <div class="chat-time">
+              <span class="chat-date">`+chat.date+`</span>
+              <span class="chat-timestamp">`+chat.timestamp+`</span>
+              </div>
+              </div>
+              <div class="chat-body">`+chat.message+`</div>
+              </div>
+              </div>
+              </div>
+              `);
           }
 
 
