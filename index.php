@@ -43,7 +43,7 @@ if (isset($_COOKIE["username"]) != "" || isset($_SESSION["username"]) != "") {
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" type="text/css" media="all" />
   <?php if ($loginStatus == true): ?>
-  <link rel="stylesheet" href="res/style.css" type="text/css" media="all" />
+  <link rel="stylesheet" href="res/css/style.css" type="text/css" media="all" />
   <?php endif; ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
